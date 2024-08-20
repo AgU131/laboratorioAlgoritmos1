@@ -65,7 +65,11 @@ cuatroB (x:xs)
 
 
 --4d) {paratodo i : 0<= i < #xs-1 : xs.i= xs.(i+1)}
-
+cuadroD :: [Int] -> Bool
+cuatroD [] = True
+cuatroD (x:xs)
+   |  0<=x && x < length (x:xs) = x==fst xs && cuatroD xs        -- no listo ahun solo copy&paste del anterior
+   | otherwise = True
 
 
 {-
