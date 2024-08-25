@@ -73,4 +73,6 @@ cuatroD (x:xs)
 
 
 {-
+
 -}
+-- ejercicio lab 4
