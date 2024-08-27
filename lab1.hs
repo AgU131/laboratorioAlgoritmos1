@@ -1,5 +1,5 @@
-  --Prueba/ practica de haskell again babyyY!!!
---  Arrancamos con haskel!!! en el lab
+   -- Prueba/ practica de haskell again babyyY!!!
+    --  Arrancamos con haskel!!! en el lab
              --   19/082024
 
 -- ejercicio lab 1
@@ -22,7 +22,6 @@ valorAbsoluto x
    | (x >=0) = x 
    | otherwise = -x
 {- OTRA FORMA
-
 valorAbsoluto x =
                  if (x>=0) then x 
                   else (-x)       -}
@@ -81,28 +80,23 @@ todos (x:xs) = x && todos xs
 -- ejercicio lab 6 (usar ejercicios 11b), 11c) y 11d))
 
 --11b) n es el elem mas grande de xs
-f11b :: [Int] -> Int
-f11b xs = maximum xs
+elementoMasGrande :: [Int] -> Int
+elementoMasGrande xs = maximum xs
 
 --11c) el producto de elem pares de xs
 
-f' :: [Int] -> Int
-f' [] = 1
-f' (x:xs)
-   | even x = x * f' xs
-   | otherwise = f' xs
+productoElementosPares :: [Int] -> Int
+productoElementosPares [] = 1
+productoElementosPares (x:xs)
+                     | even x    = x * productoElementosPares xs
+                     | otherwise = productoElementosPares xs
 
 --11d) la suma de los elem en posicion par de xs
-{- 
-f'' :: [Int] -> Int
-f'' [] = 0
-f'' (x:xs)
-   | (x:xs)!! = + f' xs
-   | otherwise = f' xs
-
--}
-
-
+ 
+sumaElementosPosicionPares :: [Int] -> Int
+sumaElementosPosicionPares []       = 0
+sumaElementosPosicionPares [x]      = x
+sumaElementosPosicionPares (x:y:xs) = x + sumaElementosPosicionPares xs
 
 -- ejercicio lab 7
 
