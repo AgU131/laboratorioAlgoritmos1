@@ -1,5 +1,5 @@
-   -- Prueba/ practica de haskell again babyyY!!!
-    --  Arrancamos con haskel!!! en el lab
+ -- Prueba/ practica de haskell again babyyY!!!
+   --  Arrancamos con haskel!!! en el lab
              --   19/082024
 
 -- ejercicio lab 1
@@ -48,18 +48,17 @@ factorial x = x * factorial (x-1)
 
 -- ejercicio lab 3 (usar ejercicios 4a), 4b) y 4d))
 
---4 {paratodo i : 0<= i < #xs : xs.i>0}
+--4a) {paratodo i : 0<= i < #xs : xs.i>0}
 cuatroA :: [Int] -> Bool
 cuatroA [] = True
 cuatroA (x:xs) = x>0 && cuatroA xs
 
 
-{- 4b) {existe i : 0<= i < #xs : xs.i=x}
-cuatroB :: [Int] -> Bool
-cuatroB [] = True
-cuatroB (x:xs)
-cuatroB = x==z && cuatroB xs
--}
+--4b) {existe i : 0<= i < #xs : xs.i=x}
+cuatroB :: [Int] -> Int -> Bool
+cuatroB [] _ = False
+cuatroB (x:xs) n = x==n || cuatroB xs n
+
 
 --4d) {paratodo i : 0<= i < #xs-1 : xs.i= xs.(i+1)}
 cuatroD :: [Int] -> Bool
