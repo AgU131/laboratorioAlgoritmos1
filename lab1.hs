@@ -179,8 +179,8 @@ esFib :: Int -> Bool
 
 todosFib :: [Int] -> Bool
 
-
 -}
+
 
 
 --ejercicio 10 (dada una lista de n numeros xs duplica cada valor de xs)
