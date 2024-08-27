@@ -55,6 +55,8 @@ e incluso si pusieramos headA :: a -> a, la unica opcion posible es del tipo hea
 de cualquier tipo sabemos muy poco
 
 
+
 -}
+
 
 
