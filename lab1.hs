@@ -70,7 +70,9 @@ cuatroD (x:xs) = x == xs !!0 || cuatroD xs
 es imbolo que hace que saques una ubicacion de una lista es !!
 -}
 
+
 -- ejercicio lab 5. <paratodo i: o<=i<#xs: xs.i> (verifica que todos lo elem de una lista son true)
+
 todos :: [Bool] -> Bool
 todos [] = True
 todos (x:xs) = x && todos xs
@@ -161,26 +163,42 @@ existeDivisor :: Int -> [Int] -> Bool  -- existe algun elemento en la lista ls q
 existeDivisor n ls = existe' ls (divide n)
 
 -- e)
-{-
+
 esPrimo :: Int -> Bool
-esPrimo = 
+esPrimo n = not (existeDivisor n [2..(n-1)])
 
 
+{-algo que saque de internet https://www.utnianos.com.ar/foro/tema-problema-haskell-numeros-primos
 
--- f)
-factorial' 
+factores :: Int -> [Int]
+factores n = [x | x <- [1..n], mod n x == 0]
 
+esPrimo :: Int -> Bool
+esPrimo n = factores n == [1,n]
 
-multiplicaPrimos :: [Int] -> Int
-
-
-esFib :: Int -> Bool
-
-
-todosFib :: [Int] -> Bool
-
+primos :: [Int] -> [Int]
+primos n = [x | x <- [2..n], esPrimo x]
 -}
 
+-- f) redefinir factorial sin recursion
+factorial' :: Int -> Int 
+factorial' x = productoria' [1..x] (*1)
+--o tambien: factorial' x = productoria [1..x]
+
+{-
+--g)
+multiplicaPrimos :: [Int] -> Int
+multiplicaPrimos xs = 
+
+
+--h)
+esFib :: Int -> Bool
+
+--i)
+todosFib :: [Int] -> Bool
+
+
+-}
 
 
 --ejercicio 10 (dada una lista de n numeros xs duplica cada valor de xs)
@@ -193,5 +211,7 @@ map (+1) [1,2,3]
 -}
 dobleLista' :: [Int] -> [Int]
 dobleLista' = map (*2)
+
+
 
 
