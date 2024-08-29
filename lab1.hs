@@ -1,3 +1,4 @@
+import Language.Haskell.TH (prim)
  -- Prueba/ practica de haskell again babyyY!!!
    --  Arrancamos con haskel!!! en el lab
              --   19/082024
@@ -18,8 +19,8 @@ esVocal a = a=='a' || a=='e' || a=='i' || a=='o' || a=='u'
 -- || = or
 
 valorAbsoluto  :: Int -> Int
-valorAbsoluto x 
-   | (x >=0) = x 
+valorAbsoluto x
+   | (x >=0) = x
    | otherwise = -x
 {- OTRA FORMA
 valorAbsoluto x =
@@ -39,10 +40,10 @@ sumatoria (x:xs) = x + sumatoria xs
 
 productoria :: [Int] -> Int
 productoria [] = 1
-productoria (x:xs) = x * productoria xs 
+productoria (x:xs) = x * productoria xs
 
 factorial :: Int -> Int
-factorial 0 = 1 
+factorial 0 = 1
 factorial x = x * factorial (x-1)
 
 
@@ -93,7 +94,7 @@ productoElementosPares (x:xs)
                      | otherwise = productoElementosPares xs
 
 --11d) la suma de los elem en posicion par de xs
- 
+
 sumaElementosPosicionPares :: [Int] -> Int
 sumaElementosPosicionPares []       = 0
 sumaElementosPosicionPares [x]      = x
@@ -119,7 +120,7 @@ sumatoria' (x:xs) t = t x + sumatoria' xs t
 
 productoria' :: [a] -> (a -> Int) -> Int
 productoria' [] t = 1
-productoria' (x:xs) t = t x * productoria' xs t 
+productoria' (x:xs) t = t x * productoria' xs t
 
 {-
 funciones de haskell
@@ -128,11 +129,11 @@ mod x 2 determina si un numero es divisible por 2, se puede usar en casos pàra 
 -- ejercicio lab 9
 
 -- a)
-todosPares :: [Int] -> Bool   
+todosPares :: [Int] -> Bool
 todosPares xs = paraTodo' xs even
 
 -- b)
-esMultiplo :: Int -> Int -> Bool 
+esMultiplo :: Int -> Int -> Bool
 esMultiplo n x = mod x n == 0
 
 
@@ -156,7 +157,7 @@ sumaCuadrados :: Int -> Int
 sumaCuadrados n = sumatoria' [(n-1)..0] cuadrado
 
 -- d)
-divide :: Int -> Int -> Bool 
+divide :: Int -> Int -> Bool
 divide n x = mod n x == 0
 
 existeDivisor :: Int -> [Int] -> Bool  -- existe algun elemento en la lista ls que divide a n
@@ -165,7 +166,7 @@ existeDivisor n ls = existe' ls (divide n)
 -- e)
 
 esPrimo :: Int -> Bool
-esPrimo n = not (existeDivisor n [2..(n-1)])
+esPrimo n = not (existeDivisor n [2..(n-1)]) && mod n n == 0   -- agregando la ultima cosa despues del "&&" se repara el error que estaba dando de contar al 0 como primo
 
 
 {-algo que saque de internet https://www.utnianos.com.ar/foro/tema-problema-haskell-numeros-primos
@@ -181,37 +182,88 @@ primos n = [x | x <- [2..n], esPrimo x]
 -}
 
 -- f) redefinir factorial sin recursion
-factorial' :: Int -> Int 
+factorial' :: Int -> Int
 factorial' x = productoria' [1..x] (*1)
 --o tambien: factorial' x = productoria [1..x]
 
-{-
 --g)
+primosDeUnaLista :: [Int] -> [Int]     -- saca los primos de una lista con filter
+primosDeUnaLista xs = filter esPrimo xs
+
 multiplicaPrimos :: [Int] -> Int
-multiplicaPrimos xs = 
+multiplicaPrimos xs = productoria (primosDeUnaLista xs)
 
 
 --h)
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+--evaluacion de la funcion en n=3
+-- fib 3= fib 2 + fib 1
+   --fib 1 + fib 0 + fib 1
+   -- 1    +  0    +  1 = 2
+
 esFib :: Int -> Bool
+esFib n = n == fib n
 
 --i)
 todosFib :: [Int] -> Bool
-
-
--}
+todosFib xs = paraTodo' xs esFib
 
 
 --ejercicio 10 (dada una lista de n numeros xs duplica cada valor de xs)
 
 dobleLista :: [Int] -> [Int]
 dobleLista [] = []
-dobleLista (x:xs) = x*2: dobleLista xs 
+dobleLista (x:xs) = x*2: dobleLista xs
 {- recordemos que map funciona asi: 
 map (+1) [1,2,3]
 -}
 dobleLista' :: [Int] -> [Int]
 dobleLista' = map (*2)
 
+--ejercicio 11 lab. dada una lista de num xs, calcula una lista que tiene como elementos aquellos n´umeros de xs que son primos
+
+listaAListaPrimos :: [Int] -> [Int]
+listaAListaPrimos [] = []
+listaAListaPrimos (x:xs)
+                      | esPrimo x = x : listaAListaPrimos xs
+                      | otherwise = listaAListaPrimos xs
+
+listaAListaPrimos' :: [Int] -> [Int]
+listaAListaPrimos' xs = filter esPrimo xs
 
 
+--ejercicio 12 lab
 
+primIgualesA :: Eq a => a -> [a] -> [a]
+primIgualesA n [] = []
+--primIgualesA n [y] = []
+primIgualesA n (x:xs)
+                  | n == x = x : primIgualesA n xs
+                  | otherwise = []
+
+
+primIgualesA' :: Eq a => a -> [a] -> [a]
+primIgualesA' n = takeWhile (n == )
+
+
+--ejercicio 13 lab
+
+primIguales :: Eq a => [a] -> [a]
+primIguales [] = []
+primIguales (x:y:xs) 
+                  | x == y = x : primIguales (y:xs)
+                  | otherwise = [x]
+
+
+primIguales' :: Eq a => [a] -> [a]
+primIguales' (x:xs) =  primIgualesA' x (x:xs)
+
+
+--ejercicio 14 lab
+{-
+cuantGen :: (b -> b -> b) -> b -> [a] -> (a -> b) -> b
+cuantGen cuantificador n (x:xs) func = cuantificador xs (func x) n
+-}
