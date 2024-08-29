@@ -195,6 +195,9 @@ multiplicaPrimos xs = productoria (primosDeUnaLista xs)
 
 
 --h)
+{-algo que saque de internet: https://www.glc.us.es/~jalonso/vestigium/peh-sucesion-de-fibonacci-evaluacion-perezosa-y-numeros-costruibles/
+-}
+
 fib :: Int -> Int
 fib 0 = 0
 fib 1 = 1
