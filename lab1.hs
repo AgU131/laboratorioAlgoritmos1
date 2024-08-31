@@ -102,21 +102,17 @@ sumaElementosPosicionPares (x:y:xs) = x + sumaElementosPosicionPares xs
 
 -- ejercicio lab 7
 
-
 paraTodo' :: [a] -> (a -> Bool) -> Bool
 paraTodo' [] t = True
 paraTodo' (x:xs) t = t x && paraTodo' xs t
-
 
 existe' :: [a] -> (a -> Bool) -> Bool
 existe' [] t = False
 existe' (x:xs) t = t x || existe' xs t
 
-
 sumatoria' :: [a] -> (a -> Int) -> Int
 sumatoria' [] t = 0
 sumatoria' (x:xs) t = t x + sumatoria' xs t
-
 
 productoria' :: [a] -> (a -> Int) -> Int
 productoria' [] t = 1
@@ -201,6 +197,7 @@ multiplicaPrimos xs = productoria (primosDeUnaLista xs)
 fib :: Int -> Int
 fib 0 = 0
 fib 1 = 1
+fib 2 = 1
 fib n = fib (n-1) + fib (n-2)
 --evaluacion de la funcion en n=3
 -- fib 3= fib 2 + fib 1
@@ -253,6 +250,7 @@ primIgualesA' n = takeWhile (n == )
 
 
 --ejercicio 13 lab
+--a)
 
 primIguales :: Eq a => [a] -> [a]
 primIguales [] = []
@@ -260,13 +258,18 @@ primIguales (x:y:xs)
                   | x == y = x : primIguales (y:xs)
                   | otherwise = [x]
 
-
+--b)
 primIguales' :: Eq a => [a] -> [a]
 primIguales' (x:xs) =  primIgualesA' x (x:xs)
 
 
 --ejercicio 14 lab
-{-
+
 cuantGen :: (b -> b -> b) -> b -> [a] -> (a -> b) -> b
-cuantGen cuantificador n (x:xs) func = cuantificador xs (func x) n
+--cuantGen op z [] t = z
+cuantGen op z xs t = op xs t 
+--cuantGen cuantificador n (x:xs) func = cuantificador xs (func x) n
+
+
+{-
 -}
