@@ -1,4 +1,4 @@
-import Language.Haskell.TH (prim)
+import Language.Haskell.TH (prim, Callconv (Prim))
  -- Prueba/ practica de haskell again babyyY!!!
    --  Arrancamos con haskel!!! en el lab
              --   19/082024
@@ -259,12 +259,14 @@ primIgualesA' n = takeWhile (n == )
 
 primIguales :: Eq a => [a] -> [a]
 primIguales [] = []
+primIguales [x] = [x]
 primIguales (x:y:xs) 
                   | x == y = x : primIguales (y:xs)
                   | otherwise = [x]
 
 --b)
 primIguales' :: Eq a => [a] -> [a]
+--primIguales' [x] = [x]
 primIguales' (x:xs) =  primIgualesA' x (x:xs)
 
 
