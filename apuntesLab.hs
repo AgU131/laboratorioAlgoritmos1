@@ -53,10 +53,18 @@ headA (x:xs) = x
 si a headA le sumamos 1 (x + 1) se nos acorta la bolsa de a para usar dejando fuera muchos valores como Bool
 e incluso si pusieramos headA :: a -> a, la unica opcion posible es del tipo headA a = a. porque no sabemos nada de esa funcion y lo que toma, etc
 de cualquier tipo sabemos muy poco
+-}
 
+--Clase 3 - 2/9/2024
+{-
+Que hace esta funcion? :
+    siguienteDia (Int, Int, Int, Int) -> (Int, Int, Int, Int)
+    siguienteDia (hora, dia, mes, año)
+
+Usaremos "data" poara defiunir constructores de nuestros contructores
+  data Dia 0 Lunes | Martes | Miercoles | Jueves | Viernes etc
 
 
 -}
-
 
 
