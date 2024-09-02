@@ -65,7 +65,7 @@ Que hace esta funcion? :
       | otherwise = (hora, dia+1, mes, año
 
 Usaremos "data" poara defiunir constructores de nuestros contructores (lo definido debe empezar por Mayusc)
-  data Dia 0 Lunes | Martes | Miercoles | Jueves | Viernes Sabado | Domingo
+  data Dia = Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo
 
   data Mes = Enero | Febrero
 Ahora con esto tenemos ya nuestra bolsa de Dia
@@ -75,6 +75,9 @@ ejemplo mal:
 siguienteDia' :: Dia -> Dia (aca si pusieramos "Lunes" en vez de Dia, nos daria mal yaque es un valor no es un tipo)
 siguienteDia' x = Lunes
 
+Para agregarle instancias a los nuevos tipos que definimos podemos hacerlo de 2 formas (se dice agregar prpiedades):
+data Dia = Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo
+  deriving Show
 
 
 -}
