@@ -60,11 +60,31 @@ de cualquier tipo sabemos muy poco
 Que hace esta funcion? :
     siguienteDia (Int, Int, Int, Int) -> (Int, Int, Int, Int)
     siguienteDia (hora, dia, mes, año)
+      | dia < 30 = (hora, dia+1, mes, año)
+      | mes < 12 = (hora, dia+1, mes, año
+      | otherwise = (hora, dia+1, mes, año
 
-Usaremos "data" poara defiunir constructores de nuestros contructores
-  data Dia 0 Lunes | Martes | Miercoles | Jueves | Viernes etc
+Usaremos "data" poara defiunir constructores de nuestros contructores (lo definido debe empezar por Mayusc)
+  data Dia 0 Lunes | Martes | Miercoles | Jueves | Viernes Sabado | Domingo
+
+  data Mes = Enero | Febrero
+Ahora con esto tenemos ya nuestra bolsa de Dia
+otro ejemplo: data Bool = True | False
+
 
 
 -}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
