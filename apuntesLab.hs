@@ -79,6 +79,9 @@ Para agregarle instancias a los nuevos tipos que definimos podemos hacerlo de 2 
 data Dia = Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo
   deriving Show
 
+Para agregar mas propiedades a un tipo lo podemos hacer como si fuera una tupĺa:
+ ej: data Dia = Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo
+      deriving (Show, Eq, Ord)
 
 -}
 
