@@ -20,7 +20,7 @@ esVocal a = a=='a' || a=='e' || a=='i' || a=='o' || a=='u'
 
 valorAbsoluto  :: Int -> Int
 valorAbsoluto x
-   | (x >=0) = x
+   | x >=0     = x
    | otherwise = -x
 {- OTRA FORMA
 valorAbsoluto x =
@@ -32,7 +32,7 @@ valorAbsoluto x =
 
 paraTodo :: [Bool] -> Bool
 paraTodo [] = True
-paraTodo (x:xs) = x==True && paraTodo xs
+paraTodo (x:xs) = x && paraTodo xs
 
 sumatoria :: [Int] -> Int
 sumatoria [] = 0
@@ -71,6 +71,11 @@ cuatroD (x:xs) = x == xs !!0 || cuatroD xs
 es imbolo que hace que saques una ubicacion de una lista es !!
 -}
 
+-- ejercicio lab 4.
+--b)
+
+sumaYDiv :: [Int] -> Int
+sumaYDiv xs = (sumatoria xs) `div` (length xs) 
 
 -- ejercicio lab 5. <paratodo i: o<=i<#xs: xs.i> (verifica que todos lo elem de una lista son true)
 
@@ -264,12 +269,53 @@ primIguales' (x:xs) =  primIgualesA' x (x:xs)
 
 
 --ejercicio 14 lab
+{-
+que tomando como argumento un operador op, su elemento neutro z, una lista de elementos xs y una
+funci ́on t ́ermino t, aplica el operador a los elementos de la lista, transformados por la funci ́on t ́ermino.
+En otras palabras, sea L un cuantificador cualquiera y  su operador asociado,
 
+cuantGen.  .z.xs.t = ⟨
+
+L i : 0 ≤ i < #xs : t.(xs !i) ⟩
+-}
+
+--a)
 cuantGen :: (b -> b -> b) -> b -> [a] -> (a -> b) -> b
---cuantGen op z [] t = z
-cuantGen op z xs t = op xs t 
+cuantGen op z [] t = z
+cuantGen op z (x:xs) t = op (t x) (cuantGen op z xs t)
 --cuantGen cuantificador n (x:xs) func = cuantificador xs (func x) n
 
 
-{-
+--b) 
+paratodoGral :: [a] -> (a -> Bool) -> Bool
+paratodoGral xs t = cuantGen (&&) True xs t
+
+--b) existe
+existeGral :: [a] -> (a -> Bool) -> Bool
+existeGral xs t = cuantGen (||) False xs t
+
+--b) sumatoria
+sumatoriaGral :: Num b => [a] -> (a -> b) -> b
+sumatoriaGral xs t = cuantGen (+) 0 xs t
+
+--b) productoria
+productoriaGral :: Num b => [a] -> (a -> b) -> b
+productoriaGral xs t = cuantGen (*) 1 xs t
+
+--ejercicio 15 lab
+
+primQueCumplen :: [a] -> (a -> Bool) -> [a]
+primQueCumplen ls p = takeWhile p ls
+
+
+--ejercicio 16 lab
+
+--ejercicio 17 lab
+{- ¿Podes dar alguna otra definici ́on alternativa a la que diste en cada caso?
+
+fun :: (a, b) -> a
+fun 
+fun 
 -}
+
+
