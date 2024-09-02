@@ -71,6 +71,10 @@ Usaremos "data" poara defiunir constructores de nuestros contructores (lo defini
 Ahora con esto tenemos ya nuestra bolsa de Dia
 otro ejemplo: data Bool = True | False
 
+ejemplo mal: 
+siguienteDia' :: Dia -> Dia (aca si pusieramos "Lunes" en vez de Dia, nos daria mal yaque es un valor no es un tipo)
+siguienteDia' x = Lunes
+
 
 
 -}
