@@ -46,7 +46,7 @@ data Dia = Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo
 --Ejercicio 2
 --a)
 data Carrera = Matematica | Fisica | Computacion | Astronomia
-
+  deriving Eq
 --b)
 titulo :: Carrera -> String
 titulo Matematica = "Licenciatura en Matematica"
@@ -71,4 +71,15 @@ cifradoAmericano La = 'A'
 cifradoAmericano Si = 'B'
 
 
+--Ejercicio 4
+-- od hoc es la definicion del tipo: "algo" a => a -> ...
+--a)
+minimoElemento :: Ord a => [a] -> a
+--minimoElemento [] = -11111111111111111111111111111111
+minimoElemento (x:xs) = x `min` minimoElemento xs
+
+--b)
+minimoElemento' :: Bounded a => [a] -> a
+minimoElemento' [] = False
+minimoElemento' (x:xs) = minimum (x:xs)
 
