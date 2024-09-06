@@ -72,10 +72,37 @@ es imbolo que hace que saques una ubicacion de una lista es !!
 -}
 
 -- ejercicio lab 4.
---b)
+
+--a) ⟨productoria i : 1 ≤ i ≤ n : i ⟩
+
+producto :: Int -> Int
+producto 0 = 1
+producto x = x * (x-1)
+
+
+--b) (⟨sumatoria i : 0 ≤ i ≤ #xs : xs.i ⟩) / #xs
 
 sumaYDiv :: [Int] -> Int
 sumaYDiv xs = (sumatoria xs) `div` (length xs) 
+
+
+--c) ⟨Max i : 0 ≤ i < #xs : xs.i ⟩ < ⟨Min i : 0 ≤ i < #ys : ys.i ⟩
+
+maxC :: [Int] -> Int
+maxC xs = maximum xs
+
+minC :: [Int] -> Int
+minC xs = minimum xs
+
+maxMenorQueMin :: [Int] -> [Int] -> Bool
+maxMenorQueMin xs ys = maxC xs < minC ys
+
+--d) ⟨ ∃ i, j : (2 ≤ i < n) ∧ (2 ≤ j < n) : i ∗ j = n ⟩
+{-
+existen2 n =  2 ≤ i < n) ∧ (2 ≤ j < n
+      | n >= 2 = 2*2
+      | otherwise
+-}
 
 -- ejercicio lab 5. <paratodo i: o<=i<#xs: xs.i> (verifica que todos lo elem de una lista son true)
 
