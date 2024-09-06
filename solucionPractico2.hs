@@ -76,10 +76,17 @@ cifradoAmericano Si = 'B'
 --a)
 minimoElemento :: Ord a => [a] -> a
 --minimoElemento [] = -11111111111111111111111111111111
-minimoElemento (x:xs) = x `min` minimoElemento xs
+minimoElemento xs = minimum xs
+
+--(x:xs) = x `min` minimoElemento xs
 
 --b)
+{-
 minimoElemento' :: Bounded a => [a] -> a
-minimoElemento' [] = False
-minimoElemento' (x:xs) = minimum (x:xs)
+--minimoElemento' [] = False
+minimoElemento' xs = minimum xs
+-}
+
+
+
 
