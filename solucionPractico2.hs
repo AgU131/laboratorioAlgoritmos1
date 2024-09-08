@@ -83,10 +83,49 @@ minimoElemento xs = minimum xs
 --b)
 {-
 minimoElemento' :: Bounded a => [a] -> a
---minimoElemento' [] = False
+--minimoElemento' ([]:: Bounded a => a)  = False
 minimoElemento' xs = minimum xs
+
 -}
 
+--Ejercicio 5
+--a) 
+-- ́Sinonimos de tipo
+type Altura = Int
+type NumCamiseta = Int
+-- Tipos algebr ́aicos sin par ́ametros (aka enumerados)
+data Zona = Arco | Defensa | Mediocampo | Delantera
+data TipoReves = DosManos | UnaMano
+data Modalidad = Carretera | Pista | Monte | BMX
+data PiernaHabil = Izquierda | Derecha
+-- Sinonimo
+type ManoHabil = PiernaHabil
+-- Deportista es un tipo algebraico con constructores parametricos
+data Deportista = Ajedrecista
+                | Ciclista Modalidad                    --Constructor con un argumento
+                | Velocista Altura                      --Constructor con un argumento
+                | Tenista TipoReves ManoHabil Altura    --Constructor con tres argumentos
+                | Futbolista Zona NumCamiseta PiernaHabil Altura  ----Constructor con...
+
+--b)
+-- Ciclista :: Modalidad -> Deportista 
+
+--c)
+contarVelocistas ::  [Deportista] -> Int
+contarVelocistas [Ajedrecista] = 0
+contarVelocistas [Ciclista m] = 0
+contarVelocistas [Velocista a] = 1
+contarVelocistas [Tenista t m a] = 0
+contarVelocistas [Futbolista z n p a] = 0
+
+
+{- aca, en el c y d, me trabe con la consigna de no usar igualdad y si usar pattern matching
+--d)
+contarFutbolistas :: [Deportista] -> Zona -> Int
+contarFutbolistas xs z = 
 
 
 
+--e)
+
+-}
