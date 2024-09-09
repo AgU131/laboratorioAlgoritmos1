@@ -109,7 +109,7 @@ y quiero especificar su tipo de Eq. entonces debo sacar le tipo de Eq del derivi
 instance Eq NotaMusical
   where
 
-Ahora veremos como hacer tipos de datos recursivos:
+Ahora veremos como hacer tipos de datos recursivos :
 ej: 
 data Palabra = Pvacia | Agregar Char Palabra    deriving Show
 
@@ -121,6 +121,8 @@ seria definiendo una funcion. ej:
 imprimir :: Palabra -> String   --o [Char]
 imprimir Pvacia = ""
 imprimir (Agregar c p) = c : (imprimir p)
+
+TIPOS Polimorficos:
 
 
 
