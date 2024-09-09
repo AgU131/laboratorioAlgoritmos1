@@ -82,7 +82,7 @@ cifradoAmericano Si  = 'B'
 minimoElemento :: Ord a => [a] -> a
 minimoElemento xs = minimum xs
 
---b)
+--b) usar maxbound?
 {-
 minimoElemento' :: Bounded a => [a] -> a
   --minimoElemento' [] :: Bounded a => a
@@ -96,7 +96,7 @@ minimoElemento' xs = minimum xs
 -- ́Sinonimos de tipo
 type Altura = Int
 type NumCamiseta = Int
--- Tipos algebr ́aicos sin par ́ametros (aka enumerados)
+-- Tipos algebraicos sin parametros (aka enumerados)
 data Zona = Arco | Defensa | Mediocampo | Delantera
   deriving (Show, Eq, Ord)
 data TipoReves = DosManos | UnaMano
@@ -173,29 +173,91 @@ f''
 -}
 
 --Ejercicio 7
+
 --verificaSi :: [a] -> (a -> Bool) -> Bool
 --verificaSi xs f = 
-
+--a)
 iguales :: Eq a => [a] -> Bool
 iguales [] = True
 iguales [x] = True
-iguales (x:y:xs) = x==y && iguales (y:xs) 
+iguales (x:y:xs) = x==y && iguales (y:xs)
 
+--b)
 minimo :: [Int] -> Int
 minimo = minimum
 
+--c)
 creciente :: [Int] -> Bool
 creciente [] = True
 creciente [x] = True
-creciente (x:y:xs) = x>=y && creciente (y:xs) 
+creciente (x:y:xs) = x>=y && creciente (y:xs)
 
+--d)
 prod :: Num a => [a] -> [a] -> a
 prod [] ys = 0
 prod xs [] = 0
 prod (x:xs) (y:ys) = x*y + prod xs ys
 
+{-
+--Ejercicio 8
+--a)⟨ ∀ i : 0 ≤ i ≤ #xs : sum.(xs↑i) ≥ 0 ⟩ , con sum la funci ́on del ejercicio 1.
+psum xs 
+
+--b)sum ant.xs = ⟨ ∃ i : 0 ≤ i < #xs : xs.i = sum.(xs↑i) ⟩
+sumAnt :: []
+--c)sum8.xs = ⟨ ∃ i : 0 ≤ i ≤ #xs : sum.(xs↑i) = 8 ⟩
+sum8 
+
+--d)f.xs = ⟨Max i : 0 ≤ i < #xs ∧ sum.(xs↑i) = sum.(xs↓i) : i ⟩ .
+funcion
 
 
+--Ejercicio 9
+--a)que dado un natural determina si es el cuadrado de un n ́umero.
+cuad :: Int -> Bool
+
+--b) que cuenta la cantidad de segmentos iniciales de una lista cuya suma es igual a 8.
+n8 :: Num a => [a] Int
+
+-}
+
+--Ejercicio 10   deriving (Show, Eq, Ord)
+--a)
+sonidoNatural :: NotaBasica -> Int
+sonidoNatural Do = 0
+sonidoNatural Re = 2
+sonidoNatural Mi = 4
+sonidoNatural Fa = 5
+sonidoNatural Sol = 7
+sonidoNatural La = 9
+sonidoNatural Si = 11
+
+--b)
+data Alteracion = Bemol | Natural | Sostenido
+  deriving (Show, Eq, Ord)
+--c)
+data NotaMusical = Nota NotaBasica Alteracion
+  deriving (Show)
 
 
+--d)
+sonidoCromatico :: NotaMusical -> Int
+sonidoCromatico (Nota notaBasica Bemol) = sonidoNatural notaBasica -1
+sonidoCromatico (Nota notaBasica Natural) = sonidoNatural notaBasica 
+sonidoCromatico (Nota notaBasica Sostenido) = sonidoNatural notaBasica +1
+--    | alteracion == sonidoNatural nota +1
 
+--e) deriving (Show, Eq, Ord)
+instance Eq NotaMusical
+  where
+    Nota notaBasica1 alteracion1 == Nota notaBasica2 alteracion2 = 
+      sonidoCromatico (Nota notaBasica1 alteracion1) == sonidoCromatico (Nota notaBasica2 alteracion2)
+
+--f)
+instance Ord NotaMusical
+  where
+    Nota notaBasica1 alteracion1 <= Nota notaBasica2 alteracion2 = 
+      sonidoCromatico (Nota notaBasica1 alteracion1) <= sonidoCromatico (Nota notaBasica2 alteracion2)
+
+
+--Ejercicio 11
