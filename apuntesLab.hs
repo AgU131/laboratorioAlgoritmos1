@@ -101,7 +101,13 @@ instance Eq Figura
 
 revisar las notas de la clase de lab y seguirlo con el audio que grabé: https://docs.google.com/presentation/d/11uS3l3ssxXHovrM0Uv_g0hHzyBVs8_riDQPAd2pgSN8/edit#slide=id.p
 
+Al declarar los tipos  de alguna clase debo eliminar el tipo si ya lo escribi previamente
+ej: si puse data NotaMusical = ...
+            deriving (Eq, Show)
 
+y quiero especificar su tipo de Eq. entonces debo sacar le tipo de Eq del deriving y declararlo en:
+instance Eq NotaMusical
+  where
 
 -}
 
