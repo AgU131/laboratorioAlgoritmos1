@@ -111,8 +111,16 @@ instance Eq NotaMusical
 
 Ahora veremos como hacer tipos de datos recursivos:
 ej: 
-data Palabra = Pvacia | Agregar Char Palabra  deriving Show
+data Palabra = Pvacia | Agregar Char Palabra    deriving Show
 
+
+ejemplo para pasar de: Agragar 'a' (Agregar 'g' (Agregar 'u' Pvacia))
+a: "agu"
+
+seria definiendo una funcion. ej:
+imprimir :: Palabra -> String   --o [Char]
+imprimir Pvacia = ""
+imprimir (Agregar c p) = c : (imprimir p)
 
 
 
