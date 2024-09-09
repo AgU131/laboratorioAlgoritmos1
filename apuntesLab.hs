@@ -120,7 +120,7 @@ a: "agu"
 seria definiendo una funcion. ej:
 imprimir :: Palabra -> String   --o [Char]
 imprimir Pvacia = ""
-imprimir (Agregar c p) = c : (imprimir p)
+imprimir (Agregar c p) = c : (imprimir p) 
 
 TIPOS Polimorficos:
 
