@@ -338,6 +338,10 @@ primQueCumplen ls p = takeWhile p ls
 
 
 --ejercicio 16 lab
+{-
+Para cada uno de los siguientes patrones, decidı si est ́an bien tipados, y en tal caso da los
+tipos de cada subexpresion. En caso de estar bien tipado, ¿el patron cubre todos los casos de definicion?
+-}
 
 --ejercicio 17 lab
 {- ¿Podes dar alguna otra definici ́on alternativa a la que diste en cada caso?
