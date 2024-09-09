@@ -1,3 +1,4 @@
+import Text.XHtml (radio)
 -- Apuntes de las clases del Laboratorio
 
 --Clase 19/08/2024
@@ -87,6 +88,20 @@ Para agregar mas propiedades a un tipo lo podemos hacer como si fuera una tupĺa
 
 --Clase 4 9/9/2024
 {-
+no creo que utilizaremos mas clases que las tipicas   deriving (Show, Eq, Ord, Bounded, Enum)
+ver que hace min y max Bound
+cuando hay un solo clase despues del derivin no necesitamos parentesis. ej: deriving Show
+fst y snd (first y second valor de una tupla)
+usar para los valores nombres mas recordables. ej: en vez de r poner radio
+Como dar una propia definicion de clase: (seria que no usaremos el tipico clase Eq que nos da haskell, sino que nosotros le damos el "orden")
+instance Eq Figura
+  where
+    Circulo (x, y) r1 == Circulo (z, w) r2 = x==z && y==w
+
+
+revisar las notas de la clase de lab y seguirlo con el audio que grabé: https://docs.google.com/presentation/d/11uS3l3ssxXHovrM0Uv_g0hHzyBVs8_riDQPAd2pgSN8/edit#slide=id.p
+
+
 
 -}
 

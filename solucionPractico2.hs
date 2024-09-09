@@ -1,4 +1,9 @@
 import Data.Text.Internal.Fusion.CaseMapping (titleMapping)
+import GHC.Float (fromRat'')
+import System.Posix (DL(Null))
+import Distribution.Simple (KnownExtension(NumDecimals))
+import Control.Concurrent (getNumCapabilities)
+import Control.Monad.RWS (Alt(Alt))
   -- Resolucion del Practico 2 Laboratorio Algoritmos
 
 --Ejercicio 1
@@ -10,7 +15,7 @@ sumCuad (x:xs) = x * x + sumCuad xs
 
 --b) iga.e.xs = ⟨ ∀ i : 0 ≤ i < #xs : xs.i = e ⟩
 iga :: Eq a => a -> [a] -> Bool
-iga e [] = True 
+iga e [] = True
 iga e (x:xs) = e == x && iga e xs
 
 --c) exp.x.n = x**n
@@ -26,12 +31,12 @@ par x = mod x 2 == 0
 
 sumPar :: Int -> Int
 sumPar 0 = 0
-sumPar n 
+sumPar n
     | par n = n + sumPar (n-1)
     | otherwise = sumPar (n-1)
 
 --e) cu ́antos.p.xs = ⟨N i : 0 ≤ i < #xs : p.(xs.i)⟩
-cuantos :: (a -> Bool) -> [a] -> Int 
+cuantos :: (a -> Bool) -> [a] -> Int
 cuantos p [] = 0
 cuantos p (x:xs)
     | p x = 1 + cuantos p xs
@@ -62,30 +67,28 @@ data NotaBasica = Do | Re | Mi | Fa | Sol | La | Si
 --d)
 
 cifradoAmericano :: NotaBasica -> Char
-cifradoAmericano Do = 'C' 
-cifradoAmericano Re = 'D'
-cifradoAmericano Mi = 'E'
-cifradoAmericano Fa = 'F'
+cifradoAmericano Do  = 'C'
+cifradoAmericano Re  = 'D'
+cifradoAmericano Mi  = 'E'
+cifradoAmericano Fa  = 'F'
 cifradoAmericano Sol = 'G'
-cifradoAmericano La = 'A'
-cifradoAmericano Si = 'B'
+cifradoAmericano La  = 'A'
+cifradoAmericano Si  = 'B'
 
 
 --Ejercicio 4
 -- od hoc es la definicion del tipo: "algo" a => a -> ...
 --a)
 minimoElemento :: Ord a => [a] -> a
---minimoElemento [] = -11111111111111111111111111111111
 minimoElemento xs = minimum xs
-
---(x:xs) = x `min` minimoElemento xs
 
 --b)
 {-
 minimoElemento' :: Bounded a => [a] -> a
---minimoElemento' ([]:: Bounded a => a)  = False
+  --minimoElemento' [] :: Bounded a => a
+  --minimoElemento [] = -11111111111111111111111111111111
 minimoElemento' xs = minimum xs
-
+  --(x:xs) = x `min` minimoElemento xs
 -}
 
 --Ejercicio 5
@@ -95,9 +98,13 @@ type Altura = Int
 type NumCamiseta = Int
 -- Tipos algebr ́aicos sin par ́ametros (aka enumerados)
 data Zona = Arco | Defensa | Mediocampo | Delantera
+  deriving (Show, Eq, Ord)
 data TipoReves = DosManos | UnaMano
+  deriving (Show, Eq, Ord)
 data Modalidad = Carretera | Pista | Monte | BMX
+  deriving (Show, Eq, Ord)
 data PiernaHabil = Izquierda | Derecha
+  deriving (Show, Eq, Ord)
 -- Sinonimo
 type ManoHabil = PiernaHabil
 -- Deportista es un tipo algebraico con constructores parametricos
@@ -106,26 +113,89 @@ data Deportista = Ajedrecista
                 | Velocista Altura                      --Constructor con un argumento
                 | Tenista TipoReves ManoHabil Altura    --Constructor con tres argumentos
                 | Futbolista Zona NumCamiseta PiernaHabil Altura  ----Constructor con...
-
+                    deriving (Show, Eq, Ord)
 --b)
 -- Ciclista :: Modalidad -> Deportista 
 
---c)
+--c) Programa la funcion que dada una lista de deportistas xs, devuelve la cantidad de velocistas que hay dentro de xs.
+--Programar contar_velocistas sin usar igualdad, utilizando pattern matching.
 contarVelocistas ::  [Deportista] -> Int
-contarVelocistas [Ajedrecista] = 0
-contarVelocistas [Ciclista m] = 0
-contarVelocistas [Velocista a] = 1
-contarVelocistas [Tenista t m a] = 0
-contarVelocistas [Futbolista z n p a] = 0
+contarVelocistas [] = 0
+contarVelocistas ((Ajedrecista):xs) = 0 + contarVelocistas xs
+contarVelocistas ((Ciclista m):xs) = 0 + contarVelocistas xs
+contarVelocistas ((Velocista a):xs) = 1 + contarVelocistas xs
+contarVelocistas ((Tenista t m a):xs) = 0 + contarVelocistas xs
+contarVelocistas ((Futbolista z n p a):xs)  = 0 + contarVelocistas xs
 
 
-{- aca, en el c y d, me trabe con la consigna de no usar igualdad y si usar pattern matching
+{-
+  aca, en el c y d, me trabe con la consigna de no usar igualdad y si usar pattern matching
+    solucion: al decir que no se puede usar igualdad se refiere a que no use "==" eso es todo, y pattern matching es el analisis por caso
+-}
 --d)
 contarFutbolistas :: [Deportista] -> Zona -> Int
-contarFutbolistas xs z = 
+contarFutbolistas [] z = 0
+contarFutbolistas ((Futbolista Arco n p a):xs) Arco = 1 + contarFutbolistas xs Arco
+contarFutbolistas ((Futbolista Defensa n p a):xs) Defensa = 1 + contarFutbolistas xs Defensa
+contarFutbolistas ((Futbolista Mediocampo n p a):xs) Mediocampo = 1 + contarFutbolistas xs Mediocampo
+contarFutbolistas ((Futbolista Delantera n p a):xs) Delantera = 1 + contarFutbolistas xs Delantera
+contarFutbolistas (x:xs) z = contarFutbolistas xs z
 
-
-
---e)
-
+--e) hacer contarFutbolistas pero con filter
+{-para solucionarlo habia que crear una funcion auxioliar que hiciera lo que hicimos antes en pattern matching pero solo para 1 caso
+y la hacemos de la forma que filter lo pueda usar y listo 
+recordemos que el tipo de filter :: (a -> Bool) -> a -> a
 -}
+sacaZona :: Zona -> Deportista -> Bool
+sacaZona zona (Futbolista z _ _ _ )= zona == z 
+sacaZona _ _ = False
+
+contarFutbolistas' :: [Deportista] -> Zona -> Int
+contarFutbolistas' xs zona = length (filter (sacaZona zona) xs)  
+
+
+--Ejercicio 6
+
+{-
+f :: Num a => a -> Int -> a
+f x 0 = 0
+f x n = expo x n + f x (n-1)
+
+--f x 1 = x
+--f x n = x*x +  f x (n-2)
+
+pi :: Num a => Int -> a
+pi 
+
+f'
+
+f''
+-}
+
+--Ejercicio 7
+--verificaSi :: [a] -> (a -> Bool) -> Bool
+--verificaSi xs f = 
+
+iguales :: Eq a => [a] -> Bool
+iguales [] = True
+iguales [x] = True
+iguales (x:y:xs) = x==y && iguales (y:xs) 
+
+minimo :: [Int] -> Int
+minimo = minimum
+
+creciente :: [Int] -> Bool
+creciente [] = True
+creciente [x] = True
+creciente (x:y:xs) = x>=y && creciente (y:xs) 
+
+prod :: Num a => [a] -> [a] -> a
+prod [] ys = 0
+prod xs [] = 0
+prod (x:xs) (y:ys) = x*y + prod xs ys
+
+
+
+
+
+
