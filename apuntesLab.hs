@@ -85,9 +85,10 @@ Para agregar mas propiedades a un tipo lo podemos hacer como si fuera una tupĺa
 
 -}
 
+--Clase 4 9/9/2024
+{-
 
-
-
+-}
 
 
 
