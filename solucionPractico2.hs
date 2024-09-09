@@ -262,7 +262,8 @@ instance Ord NotaMusical
 
 --Ejercicio 11 
 --Definı la funcion primerElemento que devuelve el primer elemento de una lista no vacia, o Nothing si la lista es vacıa.
-primerElemento :: [a] -> Maybe a
+
+--primerElemento :: [a] -> Maybe a
 
 
 
