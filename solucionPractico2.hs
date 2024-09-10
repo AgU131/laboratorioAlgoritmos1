@@ -288,4 +288,45 @@ busca cola zona
 
 -}
 
+--Ejercicio 13 
+
+data ListaAsoc a b = Vacia | Nodo a b (ListaAsoc a b)
+  deriving Show
+
+type Diccionario = ListaAsoc String String
+
+type Padron = ListaAsoc Int String 
+
+--I
+{-
+
+instance Show ListaAsoc
+  where
+    Nota notaBasica1 alteracion1 == Nota notaBasica2 alteracion2 = 
+      sonidoCromatico (Nota notaBasica1 alteracion1) == sonidoCromatico (Nota notaBasica2 alteracion2)
+-}
+
+{-
+--II
+--a)
+
+laLong :: ListaAsoc a b -> int
+
+
+laConcat :: ListaAsoc a b -> int
+
+
+laAgregar :: ListaAsoc a b -> int
+
+
+laPares :: ListaAsoc a b -> int
+
+
+laBusca :: ListaAsoc a b -> int
+
+
+laBorrar :: ListaAsoc a b -> int
+
+-}
+
 
