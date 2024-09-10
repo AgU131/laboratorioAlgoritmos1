@@ -1,9 +1,4 @@
-import Data.Text.Internal.Fusion.CaseMapping (titleMapping)
-import GHC.Float (fromRat'')
-import System.Posix (DL(Null))
-import Distribution.Simple (KnownExtension(NumDecimals))
-import Control.Concurrent (getNumCapabilities)
-import Control.Monad.RWS (Alt(Alt))
+
   -- Resolucion del Practico 2 Laboratorio Algoritmos
 
 --Ejercicio 1
@@ -130,7 +125,8 @@ contarVelocistas ((Futbolista z n p a):xs)  = 0 + contarVelocistas xs
 
 {-
   aca, en el c y d, me trabe con la consigna de no usar igualdad y si usar pattern matching
-    solucion: al decir que no se puede usar igualdad se refiere a que no use "==" eso es todo, y pattern matching es el analisis por caso
+  
+      solucion: al decir que no se puede usar igualdad se refiere a que no use "==" eso es todo, y pattern matching es el analisis por caso
 -}
 --d)
 contarFutbolistas :: [Deportista] -> Zona -> Int
@@ -261,14 +257,35 @@ instance Ord NotaMusical
 
 
 --Ejercicio 11 
---Definı la funcion primerElemento que devuelve el primer elemento de una lista no vacia, o Nothing si la lista es vacıa.
+--a) Definı la funcion primerElemento que devuelve el primer elemento de una lista no vacia, o Nothing si la lista es vacıa.
 
---primerElemento :: [a] -> Maybe a
+primerElemento :: [a] -> Maybe a
+primerElemento [] = Nothing
+primerElemento xs = Just (head xs)
+-- primerElemento (x:xs) = Just x
 
 
+--Ejercicio 12
+data Cola = VaciaC | Encolada Deportista Cola
+  deriving Show
+--a)
+atender :: Cola -> Maybe Cola
+atender VaciaC = Nothing
+atender (Encolada dep cola) = Just cola
+-- ejemplo de que poner en ghci para que ande: atender (Encolada Ajedrecista (Encolada Ajedrecista VaciaC))
 
+{-
+--b)
+encolar :: Deportista -> Cola -> Cola 
+encolar dep1 VaciaC = Encolada dep1 VaciaC 
+encolar dep1 (Encolada dep2 cola) = Encolada dep2 Encolada dep1 VaciaC
 
+--c)
+busca :: Cola -> Zona -> Maybe Deportista 
+busca cola zona
+            | 
+            | = Nothing 
 
-
+-}
 
 
