@@ -327,6 +327,13 @@ laBusca :: ListaAsoc a b -> int
 
 laBorrar :: ListaAsoc a b -> int
 
+
+-}
+
+--Ejercicio 14
+{-
+
+
 -}
 
 
