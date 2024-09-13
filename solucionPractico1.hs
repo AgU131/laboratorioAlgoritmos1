@@ -194,8 +194,8 @@ existeDivisor n ls = existe' ls (divide n)
 -- e)
 
 esPrimo :: Int -> Bool
-esPrimo n = not (existeDivisor n [2..(n-1)]) && mod n n == 0   -- agregando la ultima cosa despues del "&&" se repara el error que estaba dando de contar al 0 como primo
-
+esPrimo n = not (existeDivisor n [2..(n-1)]) && mod n n == 0   -- ARREGLO: agregando la ultima cosa despues del "&&" se repara el error que estaba dando de contar al 0 como primo
+                                                               -- ARREGLO DEL ARREGLO: otra mejor ocion de resolver que repare el error que da si tiran valor 0, seria hacer esto: n=/0 y listo
 
 {-algo que saque de internet https://www.utnianos.com.ar/foro/tema-problema-haskell-numeros-primos
 
