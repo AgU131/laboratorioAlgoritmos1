@@ -78,14 +78,15 @@ minimoElemento :: Ord a => [a] -> a
 minimoElemento xs = minimum xs
 
 --b) usar maxbound?
-          -- Aca se me prendio la lamparita, gracias a este link: https://zvon.org/other/haskell/Outputprelude/minBound_f.html
+          -- Aca se me prendio la lamparita gracias a este link: https://zvon.org/other/haskell/Outputprelude/minBound_f.html
 
 minimoElemento' :: Bounded a => [a] -> a
   --minimoElemento' [] :: Bounded a => a
-  --minimoElemento [] = minBound :: Int
+minimoElemento [] = minBound :: Int
 minimoElemento' (x:xs) = x `min` (minimoElemento' xs) 
   --(x:xs) = x `min` minimoElemento xs
 {-
+todavia no se si esta reparado. REVISARR!!!!!!
 -}
 
 --Ejercicio 5
