@@ -347,7 +347,7 @@ laBorrar :: ListaAsoc a b -> int
 -}
 
 
-
+-- Consegui videos de las Clases de Laboratorio en YouTube de Algoritmos I: https://www.youtube.com/playlist?list=PLC0XIpyXEA7XCGKAuNq8NPoKiiDz-mAUI
 
 
 
