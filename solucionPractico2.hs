@@ -80,12 +80,15 @@ minimoElemento xs = minimum xs
 --b) usar maxbound?
           -- Aca se me prendio la lamparita gracias a este link: https://zvon.org/other/haskell/Outputprelude/minBound_f.html
 
-{-
-minimoElemento' :: Bounded a => [a] -> a
-  --minimoElemento' [] :: Bounded a => a
-minimoElemento' [] = (minBound :: a)
-minimoElemento' (x:xs) = x `min` (minimoElemento' xs) 
+minimoElemento' :: (Ord a, Bounded a) => [a] -> a
+  -- se lo copie aun chico y no funciono
+minimoElemento' [] = maxBound -- esto deberia ser minBound
+minimoElemento' [x] = x
+minimoElemento' (x:y:xs) = x `min` y `min` (minimoElemento' xs) 
+--minimoElemento' (x:xs) = x `min` (minimoElemento' xs) 
+
   --(x:xs) = x `min` minimoElemento xs
+{-
 todavia no se si esta reparado. REVISARR!!!!!!
 
 
@@ -197,8 +200,8 @@ creciente (x:y:xs) = x>=y && creciente (y:xs)
 
 --d)
 prod :: Num a => [a] -> [a] -> a
-prod [] ys = 0
-prod xs [] = 0
+prod [] _ = 0
+prod _ [] = 0
 prod (x:xs) (y:ys) = x*y + prod xs ys
 
 {-
@@ -286,7 +289,7 @@ data Cola = VaciaC | Encolada Deportista Cola
 --a)
 atender :: Cola -> Maybe Cola
 atender VaciaC = Nothing
-atender (Encolada dep cola) = Just cola
+atender (Encolada _ cola) = Just cola
 -- ejemplo de que poner en ghci para que ande: atender (Encolada Ajedrecista (Encolada Ajedrecista VaciaC))
 
 --b)
@@ -301,56 +304,72 @@ encolar dep1 (Encolada dep2 cola) = Encolada dep2 (encolar dep1 cola)
 --soloFutbolistas = (filter (sacaZona zona) xs) 
 
 busca :: Cola -> Zona -> Maybe Deportista 
-busca VaciaC zona = Nothing
+busca VaciaC _ = Nothing
 busca (Encolada (Futbolista z a b c) cola) zona
       | z == zona = Just (Futbolista z a b c)
       | otherwise = busca cola zona
-busca (Encolada depo cola) zona = busca cola zona
+busca (Encolada _ cola) zona = busca cola zona
 
 -- ejemplo para el ghci: busca (Encolada (Velocista 132) (Encolada (Ciclista BMX) (Encolada Ajedrecista (Encolada (Futbolista Arco 1 Derecha 12312) VaciaC)))) Arco
 
 
 {-
+papaaaa como costo estos ultimos 2!!
+Perovamos quese puede!
 -}
 
 --Ejercicio 13 
 
 data ListaAsoc a b = Vacia | Nodo a b (ListaAsoc a b)
-  deriving Show
+  deriving (Show, Eq, Ord)
 
 type Diccionario = ListaAsoc String String
+type Padron      = ListaAsoc Int String 
 
-type Padron = ListaAsoc Int String 
+--I ¿Como se debe instanciar el tipo ListaAsoc para representar la informacion almacenada en una guıa telefonica?
+--deberia instanciarse asi: 
+type GuiaTelefonica = ListaAsoc String Int 
 
---I
-{-
-
-instance Show ListaAsoc
-  where
-    Nota notaBasica1 alteracion1 == Nota notaBasica2 alteracion2 = 
-      sonidoCromatico (Nota notaBasica1 alteracion1) == sonidoCromatico (Nota notaBasica2 alteracion2)
--}
-
-{-
 --II
---a)
+--a) que devuelve la cantidad de datos en una lista.
+laLong :: ListaAsoc a b -> Int
+laLong Vacia = 0
+laLong (Nodo _ _ demas) = 1 + laLong demas
 
-laLong :: ListaAsoc a b -> int
-
-
-laConcat :: ListaAsoc a b -> int
-
-
-laAgregar :: ListaAsoc a b -> int
-
-
-laPares :: ListaAsoc a b -> int
-
-
-laBusca :: ListaAsoc a b -> int
+--b) que devuelve la concatenacion de dos listas de asociaciones.
+laConcat :: ListaAsoc a b -> ListaAsoc a b -> ListaAsoc a b
+laConcat Vacia Vacia = Vacia
+laConcat Vacia (Nodo a b demas) = (Nodo a b demas)
+laConcat (Nodo a b demas) Vacia = (Nodo a b demas)
+laConcat (Nodo a1 b1 Vacia) (Nodo a2 b2 demas) = Nodo a1 b1 (Nodo a2 b2 demas)
+laConcat (Nodo a1 b1 demas1) (Nodo a2 b2 demas2) = Nodo a1 b1 (laConcat demas1 (Nodo a2 b2 demas2))
 
 
-laBorrar :: ListaAsoc a b -> int
+--c)que agrega un nodo a la lista de asociaciones si la clave no esta en la lista, o actualiza el valor si la clave ya se encontraba
+
+laAgregar :: Eq a => ListaAsoc a b -> a -> b -> ListaAsoc a b
+laAgregar Vacia clave info = Nodo clave info Vacia
+laAgregar (Nodo a b demas) clave info 
+        | a == clave = Nodo a info demas
+        | otherwise = Nodo a b (Nodo clave info demas)
+--laAgregar (Nodo a b demas) clave info
+
+
+{-
+
+
+--d) que transforma una lista de asociaciones en una lista de pares clave-dato.
+laPares :: ListaAsoc a b -> [(a, b)] 
+
+
+
+--e) que dada una lista y una clave devuelve el dato asociado, si es que existe. En caso contrario devuelve Nothing.
+laBusca :: Eq a => ListaAsoc a b -> a -> Maybe b
+
+
+
+--f) que dada una clave a elimina la entrada en la lista.
+laBorrar :: Eq a => a -> ListaAsoc a b -> ListaAsoc a b
 
 
 -}
