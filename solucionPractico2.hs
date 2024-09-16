@@ -80,13 +80,17 @@ minimoElemento xs = minimum xs
 --b) usar maxbound?
           -- Aca se me prendio la lamparita gracias a este link: https://zvon.org/other/haskell/Outputprelude/minBound_f.html
 
+{-
 minimoElemento' :: Bounded a => [a] -> a
   --minimoElemento' [] :: Bounded a => a
-minimoElemento [] = minBound :: Int
+minimoElemento' [] = (minBound :: a)
 minimoElemento' (x:xs) = x `min` (minimoElemento' xs) 
   --(x:xs) = x `min` minimoElemento xs
-{-
 todavia no se si esta reparado. REVISARR!!!!!!
+
+
+No lo esta
+
 -}
 
 --Ejercicio 5
@@ -210,15 +214,23 @@ sum8
 --d)f.xs = ⟨Max i : 0 ≤ i < #xs ∧ sum.(xs↑i) = sum.(xs↓i) : i ⟩ .
 funcion
 
+-}
 
 --Ejercicio 9
 --a)que dado un natural determina si es el cuadrado de un n ́umero.
+deMapABool :: [Bool] -> Bool
+deMapABool [] = False
+deMapABool (x:xs) = x || (deMapABool xs)
+
 cuad :: Int -> Bool
+cuad 0 = False
+cuad 1 = False
+cuad 2 = False
+cuad x = deMapABool (map (==0) ((map (mod x) [2..(x-1)])))
 
 --b) que cuenta la cantidad de segmentos iniciales de una lista cuya suma es igual a 8.
-n8 :: Num a => [a] Int
+--n8 :: Num a => [a] Int
 
--}
 
 --Ejercicio 10   deriving (Show, Eq, Ord)
 --a)
@@ -277,18 +289,28 @@ atender VaciaC = Nothing
 atender (Encolada dep cola) = Just cola
 -- ejemplo de que poner en ghci para que ande: atender (Encolada Ajedrecista (Encolada Ajedrecista VaciaC))
 
-{-
 --b)
 encolar :: Deportista -> Cola -> Cola 
 encolar dep1 VaciaC = Encolada dep1 VaciaC 
-encolar dep1 (Encolada dep2 cola) = Encolada dep2 Encolada dep1 VaciaC
+encolar dep1 (Encolada dep2 VaciaC) = Encolada dep2 (Encolada dep1 VaciaC)
+encolar dep1 (Encolada dep2 cola) = Encolada dep2 (encolar dep1 cola)
+-- Encolada Ajedrecista (Encolada Ajedrecista Encolada dep1 VaciaC))
 
 --c)
-busca :: Cola -> Zona -> Maybe Deportista 
-busca cola zona
-            | 
-            | = Nothing 
 
+--soloFutbolistas = (filter (sacaZona zona) xs) 
+
+busca :: Cola -> Zona -> Maybe Deportista 
+busca VaciaC zona = Nothing
+busca (Encolada (Futbolista z a b c) cola) zona
+      | z == zona = Just (Futbolista z a b c)
+      | otherwise = busca cola zona
+busca (Encolada depo cola) zona = busca cola zona
+
+-- ejemplo para el ghci: busca (Encolada (Velocista 132) (Encolada (Ciclista BMX) (Encolada Ajedrecista (Encolada (Futbolista Arco 1 Derecha 12312) VaciaC)))) Arco
+
+
+{-
 -}
 
 --Ejercicio 13 
