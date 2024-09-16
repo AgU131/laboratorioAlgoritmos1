@@ -129,7 +129,46 @@ TIPOS Polimorficos:
 -}
 
 
+--Clase 5 16/9/2024
+{-
+Veremos: case y Maybe
+segun un poco de las cosas que vimos la clase pasada
 
+CASE:
+
+tareaDiaria :: Dia -> Tarea
+tareaDiaria d = 
+
+horas Trabajo
+
+
+--case syntax
+horasTrabajoCase ::  
+horasTrabajoCase = case tareaDiaria d of  -- las palabras clave sin: case .. of (nada mas, no olvidarme del of!)
+                    Trabajar -> 8
+                    TrabajarPoco -> 4
+                    _ -> 0
+
+
+MAYBE:
+data Maybe a = Nothing | Just abs
+ej:
+data Clase = Teorico | Taller
+
+hayClase :: Dia -> Maybe Clase
+hayClase Lunes = Just Taller
+hayClase _ = Nothing
+
+
+COMBINAR:
+actividad :: Dia -> String
+actividad d = case hayClase d of
+                Nothig       -> "Estudiar en casa"
+                Just Teorico -> "Teorico"
+                Just Taller  -> "Taller"
+
+
+-}
 
 
 
