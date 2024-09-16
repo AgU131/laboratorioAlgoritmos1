@@ -352,43 +352,77 @@ laAgregar Vacia clave info = Nodo clave info Vacia
 laAgregar (Nodo a b demas) clave info 
         | a == clave = Nodo a info demas
         | otherwise = Nodo a b (Nodo clave info demas)
---laAgregar (Nodo a b demas) clave info
-
-
-{-
 
 
 --d) que transforma una lista de asociaciones en una lista de pares clave-dato.
 laPares :: ListaAsoc a b -> [(a, b)] 
-
+laPares Vacia = []
+laPares (Nodo a b demas) =  [(a, b)] ++ laPares demas
 
 
 --e) que dada una lista y una clave devuelve el dato asociado, si es que existe. En caso contrario devuelve Nothing.
 laBusca :: Eq a => ListaAsoc a b -> a -> Maybe b
-
+laBusca Vacia _ = Nothing
+laBusca (Nodo a dato demas) clave
+          | a == clave = Just dato
+          | otherwise = laBusca demas clave
 
 
 --f) que dada una clave a elimina la entrada en la lista.
 laBorrar :: Eq a => a -> ListaAsoc a b -> ListaAsoc a b
+laBorrar _ Vacia = Vacia
+laBorrar clave (Nodo a _ demas) 
+        | a == clave = Vacia
+        | otherwise  = laBorrar clave demas 
 
+
+--Ejercicio 14 Implementa en Haskell las funciones derivadas en el ejercicio anterior.
+{-
+a) ⟨ ∀ as, bs : xs = as ++ bs : sum.as ≥ 0 ⟩
+b) ⟨Min as, bs, cs : xs = as ++ bs ++ cs : sum.bs ⟩
+c) ⟨N as, b, bs : xs = as ++ (b ▷ bs) : b > sum.bs ⟩
+d) ⟨Max as, bs, cs : xs = as ++ bs ∧ ys = as ++ cs : #as ⟩
 
 -}
 
---Ejercicio 14
+
+--Ejercicio 15 Implementa en Haskell las funciones derivadas en el ejercicio anterior.
+
 {-
-
-
--}
-
-
---Ejercicio 14
-{-
-
+a) sumin.xs = ⟨Min as, bs, cs : xs = as ++ bs ++ cs : sum.bs ⟩
+(suma m ́ınima de un segmento).
+b) f.xs = ⟨N as, bs, cs : xs = as ++ bs ++ cs : 8 = sum.bs ⟩
+(cantidad de segmentos que suman eso).
+c) maxiga.e.xs = ⟨Max as, bs, cs : xs = as ++ bs ++ cs ∧ iga.e.bs : #bs ⟩
+(m ́axima longitud de iguales a e)
+donde iga es la funci ́on del ejercicio 2b.
 
 -}
 
 
 -- Consegui videos de las Clases de Laboratorio en YouTube de Algoritmos I: https://www.youtube.com/playlist?list=PLC0XIpyXEA7XCGKAuNq8NPoKiiDz-mAUI
+
+
+--Ejercicio 16 Implementa en Haskell las funciones derivadas en el ejercicio anterior.
+{-
+a) f.xs = ⟨N i, j : 0 ≤ i < j < #xs : xs.i = xs.j⟩
+b) g.xs = ⟨Max p, q : 0 ≤ p < q < #xs : xs.p + xs.q⟩
+c) h.xs = ⟨N k : 0 ≤ k < #xs : ⟨∀i : 0 ≤ i < k : xs.i < xs.k⟩⟩
+d) k.xs = ⟨∀i, j : 0 ≤ i ∧ 0 ≤ j ∧ i + j = #xs − 1 : xs.i = xs.j⟩
+e) l.xs = ⟨Max p, q : 0 ≤ p ≤ q < #xs ∧ ⟨∀i : p ≤ i < q : xs.i ≥ 0⟩ : q − p⟩
+
+-}
+
+
+--Ejercicio 17 Implementa en Haskell las funciones derivadas en el ejercicio anterior.
+{-
+a) El elemento e ocurre un n ́umero par de veces en la lista xs.
+b) El elemento e ocurre en las posiciones pares de la lista xs.
+c) El elemento e ocurre  ́unicamente en las posiciones pares de la lista xs.
+d) Si e ocurre en la lista xs, entonces l ocurre en alguna posicion anterior en la misma lista.
+e) Existe un elemento de la lista xs que es estrictamente mayor a todos los dem ́as.
+f) En la lista xs solo ocurren valores que anulan la funcion f.
+-}
 
 
 
