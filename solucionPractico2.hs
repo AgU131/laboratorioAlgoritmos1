@@ -161,25 +161,32 @@ contarFutbolistas' xs zona = length (filter (sacaZona zona) xs)
 
 
 --Ejercicio 6
-
+--a)
 f :: Num a => a -> Int -> a
 f x 0 = 0
 f x n = expo x n + f x (n-1)
 
 --f x 1 = x
 --f x n = x*x +  f x (n-2)
-
+--b)
 pi :: Num a => Int -> a
 pi 0 = 0
 pi n = pi (n-1) + 4 * (expo (-1) (n-1) / 2*n+1)
 
+--c)
 efe :: Int -> Int
 efe 0 = 0
 efe n = efe (n-1) + expo x 2 + expo x 2 + expo x 2 + expo x 1 + expo x 1 + expo x 1 + 1
 
-{-
-f''
--}
+--d)
+ge :: [Int] -> Int
+ge 0 = 1
+ge (x:xs) = x * ge xs
+
+ff :: [Int] -> Bool
+ff 0 = False
+ff (x:xs) = ge xs==x || ff xs
+
 
 --Ejercicio 7
 
