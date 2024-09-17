@@ -162,7 +162,6 @@ contarFutbolistas' xs zona = length (filter (sacaZona zona) xs)
 
 --Ejercicio 6
 
-{-
 f :: Num a => a -> Int -> a
 f x 0 = 0
 f x n = expo x n + f x (n-1)
@@ -171,8 +170,10 @@ f x n = expo x n + f x (n-1)
 --f x n = x*x +  f x (n-2)
 
 pi :: Num a => Int -> a
-pi 
+pi 0 = 0
+pi n = pi (n-1) + 4 * (expo (-1) (n-1) / 2*n+1)
 
+{-
 f'
 
 f''
