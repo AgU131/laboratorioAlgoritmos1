@@ -173,9 +173,11 @@ pi :: Num a => Int -> a
 pi 0 = 0
 pi n = pi (n-1) + 4 * (expo (-1) (n-1) / 2*n+1)
 
-{-
-f'
+efe :: Int -> Int
+efe 0 = 0
+efe n = efe (n-1) + expo x 2 + expo x 2 + expo x 2 + expo x 1 + expo x 1 + expo x 1 + 1
 
+{-
 f''
 -}
 
