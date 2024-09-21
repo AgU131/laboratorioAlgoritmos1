@@ -1,5 +1,4 @@
-
-  -- Resolucion del Practico 2 Laboratorio Algoritmos
+-- Resolucion del Practico 2 Laboratorio Algoritmos
 
 --Ejercicio 1
 
@@ -84,7 +83,7 @@ minimoElemento' :: (Ord a, Bounded a) => [a] -> a
   -- se lo copie aun chico y no funciono
 minimoElemento' [] = maxBound -- esto deberia ser minBound
 minimoElemento' [x] = x
-minimoElemento' (x:y:xs) = x `min` y `min` (minimoElemento' xs) 
+minimoElemento' (x:y:xs) = x `min` y `min` (minimoElemento' xs)
 --minimoElemento' (x:xs) = x `min` (minimoElemento' xs) 
 
   --(x:xs) = x `min` minimoElemento xs
@@ -153,38 +152,41 @@ y la hacemos de la forma que filter lo pueda usar y listo
 recordemos que el tipo de filter :: (a -> Bool) -> a -> a
 -}
 sacaZona :: Zona -> Deportista -> Bool
-sacaZona zona (Futbolista z _ _ _ )= zona == z 
+sacaZona zona (Futbolista z _ _ _ )= zona == z
 sacaZona _ _ = False
 
 contarFutbolistas' :: [Deportista] -> Zona -> Int
-contarFutbolistas' xs zona = length (filter (sacaZona zona) xs)  
+contarFutbolistas' xs zona = length (filter (sacaZona zona) xs)
 
 
 --Ejercicio 6
 --a)
-f :: Num a => a -> Int -> a
+-- f :: Num a => a -> Int -> a
+f :: Int -> Int -> Int
 f x 0 = 0
 f x n = expo x n + f x (n-1)
 
 --f x 1 = x
 --f x n = x*x +  f x (n-2)
 --b)
-pi :: Num a => Int -> a
-pi 0 = 0
-pi n = pi (n-1) + 4 * (expo (-1) (n-1) / 2*n+1)
-
+-- pii :: Num a => Int -> a
+{-
+pii :: Int -> Int
+pii 0 = 0
+pii n = pii (n-1) + 4 * (expo (-1) (n-1) / 2*n+1)
+-}
 --c)
 efe :: Int -> Int
 efe 0 = 0
-efe n = efe (n-1) + expo x 2 + expo x 2 + expo x 2 + expo x 1 + expo x 1 + expo x 1 + 1
+efe n = efe (n-1) + expo n 2 + expo n 2 + expo n 2 + expo n 1 + expo n 1 + expo n 1 + 1
 
 --d)
 ge :: [Int] -> Int
-ge 0 = 1
+ge [] = 1
 ge (x:xs) = x * ge xs
 
 ff :: [Int] -> Bool
-ff 0 = False
+ff [] = False
 ff (x:xs) = ge xs==x || ff xs
 
 
@@ -267,20 +269,20 @@ data NotaMusical = Nota NotaBasica Alteracion
 --d)
 sonidoCromatico :: NotaMusical -> Int
 sonidoCromatico (Nota notaBasica Bemol) = sonidoNatural notaBasica -1
-sonidoCromatico (Nota notaBasica Natural) = sonidoNatural notaBasica 
+sonidoCromatico (Nota notaBasica Natural) = sonidoNatural notaBasica
 sonidoCromatico (Nota notaBasica Sostenido) = sonidoNatural notaBasica +1
 --    | alteracion == sonidoNatural nota +1
 
 --e) deriving (Show, Eq, Ord)
 instance Eq NotaMusical
   where
-    Nota notaBasica1 alteracion1 == Nota notaBasica2 alteracion2 = 
+    Nota notaBasica1 alteracion1 == Nota notaBasica2 alteracion2 =
       sonidoCromatico (Nota notaBasica1 alteracion1) == sonidoCromatico (Nota notaBasica2 alteracion2)
 
 --f)
 instance Ord NotaMusical
   where
-    Nota notaBasica1 alteracion1 <= Nota notaBasica2 alteracion2 = 
+    Nota notaBasica1 alteracion1 <= Nota notaBasica2 alteracion2 =
       sonidoCromatico (Nota notaBasica1 alteracion1) <= sonidoCromatico (Nota notaBasica2 alteracion2)
 
 
@@ -303,8 +305,8 @@ atender (Encolada _ cola) = Just cola
 -- ejemplo de que poner en ghci para que ande: atender (Encolada Ajedrecista (Encolada Ajedrecista VaciaC))
 
 --b)
-encolar :: Deportista -> Cola -> Cola 
-encolar dep1 VaciaC = Encolada dep1 VaciaC 
+encolar :: Deportista -> Cola -> Cola
+encolar dep1 VaciaC = Encolada dep1 VaciaC
 encolar dep1 (Encolada dep2 VaciaC) = Encolada dep2 (Encolada dep1 VaciaC)
 encolar dep1 (Encolada dep2 cola) = Encolada dep2 (encolar dep1 cola)
 -- Encolada Ajedrecista (Encolada Ajedrecista Encolada dep1 VaciaC))
@@ -313,7 +315,7 @@ encolar dep1 (Encolada dep2 cola) = Encolada dep2 (encolar dep1 cola)
 
 --soloFutbolistas = (filter (sacaZona zona) xs) 
 
-busca :: Cola -> Zona -> Maybe Deportista 
+busca :: Cola -> Zona -> Maybe Deportista
 busca VaciaC _ = Nothing
 busca (Encolada (Futbolista z a b c) cola) zona
       | z == zona = Just (Futbolista z a b c)
@@ -334,11 +336,11 @@ data ListaAsoc a b = Vacia | Nodo a b (ListaAsoc a b)
   deriving (Show, Eq, Ord)
 
 type Diccionario = ListaAsoc String String
-type Padron      = ListaAsoc Int String 
+type Padron      = ListaAsoc Int String
 
 --I ¿Como se debe instanciar el tipo ListaAsoc para representar la informacion almacenada en una guıa telefonica?
 --deberia instanciarse asi: 
-type GuiaTelefonica = ListaAsoc String Int 
+type GuiaTelefonica = ListaAsoc String Int
 
 --II
 --a) que devuelve la cantidad de datos en una lista.
@@ -359,13 +361,13 @@ laConcat (Nodo a1 b1 demas1) (Nodo a2 b2 demas2) = Nodo a1 b1 (laConcat demas1 (
 
 laAgregar :: Eq a => ListaAsoc a b -> a -> b -> ListaAsoc a b
 laAgregar Vacia clave info = Nodo clave info Vacia
-laAgregar (Nodo a b demas) clave info 
+laAgregar (Nodo a b demas) clave info
         | a == clave = Nodo a info demas
         | otherwise = Nodo a b (Nodo clave info demas)
 
 
 --d) que transforma una lista de asociaciones en una lista de pares clave-dato.
-laPares :: ListaAsoc a b -> [(a, b)] 
+laPares :: ListaAsoc a b -> [(a, b)]
 laPares Vacia = []
 laPares (Nodo a b demas) =  [(a, b)] ++ laPares demas
 
@@ -381,10 +383,12 @@ laBusca (Nodo a dato demas) clave
 --f) que dada una clave a elimina la entrada en la lista.
 laBorrar :: Eq a => a -> ListaAsoc a b -> ListaAsoc a b
 laBorrar _ Vacia = Vacia
-laBorrar clave (Nodo a _ demas) 
+laBorrar clave (Nodo a _ demas)
         | a == clave = Vacia
-        | otherwise  = laBorrar clave demas 
+        | otherwise  = laBorrar clave demas
 
+
+--Ejercicios de segmentacion
 
 --Ejercicio 14 Implementa en Haskell las funciones derivadas en el ejercicio anterior.
 {-
@@ -392,8 +396,29 @@ a) ⟨ ∀ as, bs : xs = as ++ bs : sum.as ≥ 0 ⟩
 b) ⟨Min as, bs, cs : xs = as ++ bs ++ cs : sum.bs ⟩
 c) ⟨N as, b, bs : xs = as ++ (b ▷ bs) : b > sum.bs ⟩
 d) ⟨Max as, bs, cs : xs = as ++ bs ∧ ys = as ++ cs : #as ⟩
-
 -}
+--extras del practico añadidos desde una netbookdel goierno
+
+suma :: [Int] -> Int
+suma [] = 0
+suma (x:xs) = x + suma xs
+
+--a) ⟨∀as,bs : xs = as ++ bs : sum.as ≥ 0⟩ 
+-- generalizacion funcion gen.n.xs=⟨∀as,bs : xs = as ++ bs : n + sum.as ≥ 0⟩ 
+
+funcionGen :: Int -> [Int] -> Bool
+funcionGen n [] = n >= 0
+funcionGen n (x:xs) =  n + suma (x:xs) >= 0 && funcionGen (n+x) xs
+
+funcion :: [Int] -> Bool
+funcion = funcionGen 0
+
+
+--b) ⟨Min as,bs,cs : xs = as ++ bs ++ cs : sum.bs⟩ 
+--Necesitamos generalizar tambien, creo
+funMin :: [Int] -> Int
+funMin [] = 0
+funMin (x:xs) = suma xs --mal
 
 
 --Ejercicio 15 Implementa en Haskell las funciones derivadas en el ejercicio anterior.
