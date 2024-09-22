@@ -13,6 +13,10 @@ import Text.XHtml (radio)
 maxBound o minBound (hace max o min hasta infinito).    :t "funcion" (me da el tipo de lafuncion).      :i "Tipo" (da informacion del Tipo).     
 para escribir una funcion que toma 2 argumentdos en el medio usamos ``, ej: 12 `mod` 2
 
+--Comandos VSCode
+Shift + Alt + uparrow = duplica una linea de codigo
+Ctrl + X = Elimina una linea de codigo
+
 -}
 {-
 ghc es el compiolador, siendo que ghci es el interprete
