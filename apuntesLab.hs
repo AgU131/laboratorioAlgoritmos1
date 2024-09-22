@@ -4,18 +4,29 @@ import Text.XHtml (radio)
 --Clase 19/08/2024
 
 {-
--comandos basicos para navegar en linux: abrir terminalctrl alt t
-  ls listar.    cd   (change directory) + tab. ll (no se que hace).   cd (solo vuelve al home) y con ../ vuelve al respositorio anterior.    rm "archivo.hs"  (ELIMINA ARCHIVO).    mv "nombre.hs" "nuevonombre.hs" (cambia el nombre del archivo).     tree "repositorio/lugar en donde estas" (hace un arbol de lo que contiene la carpeta).    mkdir "nombre" (crea carpeta).    touch "nombre.hs" (crea doc de texto).   
+-- comandos basicos para navegar en linux: abrir terminalctrl alt t
+  ls listar.    
+  cd   (change directory) + tab. 
+  ll (no se que hace).   cd (solo vuelve al home) y con ../ vuelve al respositorio anterior.    
+  rm "archivo.hs"  (ELIMINA ARCHIVO).    
+  mv "nombre.hs" "nuevonombre.hs" (cambia el nombre del archivo).     
+  tree "repositorio/lugar en donde estas" (hace un arbol de lo que contiene la carpeta).    
+  mkdir "nombre" (crea carpeta).    
+  touch "nombre.hs" (crea doc de texto).   
 -}
 {-
 -- comandos de haskell
-  ghci "nombre del archivo.hs" (compila el archivo).   :l "nombre.hs" (:l==:load, carga el archivo dentro de ghci).    :r (:r==:reload, recarga el archivo previamente cargado).   :q (salir de ghci).    ctrl + d (salir de ghci o de algo de la terminal).   ctrl + l (limpia la pantalla de la terminal)
+  ghci "nombre del archivo.hs" (compila el archivo).   
+  :l "nombre.hs" (:l==:load, carga el archivo dentro de ghci).    
+  :r (:r==:reload, recarga el archivo previamente cargado).   
+  :q (salir de ghci).    ctrl + d (salir de ghci o de algo de la terminal).   
+  ctrl + l (limpia la pantalla de la terminal)
 maxBound o minBound (hace max o min hasta infinito).    :t "funcion" (me da el tipo de lafuncion).      :i "Tipo" (da informacion del Tipo).     
 para escribir una funcion que toma 2 argumentdos en el medio usamos ``, ej: 12 `mod` 2
 
 --Comandos VSCode
-Shift + Alt + uparrow = duplica una linea de codigo
-Ctrl + X = Elimina una linea de codigo
+ Shift + Alt + uparrow = duplica una linea de codigo
+ Ctrl + X = Elimina una linea de codigo
 
 -}
 {-
