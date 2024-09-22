@@ -34,11 +34,16 @@ cuantasNovelasPorGenero ((Novela _ Romance _ _ _):xs) Romance = 1 + cuantasNovel
 cuantasNovelasPorGenero ((Novela _ Misterio _ _ _):xs) Misterio = 1 + cuantasNovelasPorGenero xs Misterio
 cuantasNovelasPorGenero ((Novela _ Aventura _ _ _):xs) Aventura = 1 + cuantasNovelasPorGenero xs Aventura
 
+--c)
 
 
+
+instance Eq Libro
+    where
+(Novela a1 b1 c1 d1 e1) == (Novela a1 b1 c1 d1 e1)
 
 {-}
-            | genero == gen = 1 +  cuantasNovelasPorGenero xs gen 
+            | genero == gen = 1 + cuantasNovelasPorGenero xs gen 
             | otherwise = cuantasNovelasPorGenero xs gen 
 -}
 
