@@ -1,0 +1,1 @@
+/*Asi es como se colocan notas en C*/
