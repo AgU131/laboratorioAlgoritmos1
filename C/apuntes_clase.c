@@ -7,7 +7,8 @@ Para compilar un archivo .c escribir en la terminal:
 Para ejecutar escribir: 
         $> ./miprograma
 
-as
+estado ej.: {x->2}
+Las Expresiones nunca van a modificar el estado, solo lo usaran
 
 
 
