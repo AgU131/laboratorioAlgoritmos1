@@ -39,7 +39,8 @@ Librerias de C:
 #include <stdio.h>
 debe estar incluido para que funcione, saca declaraciones o definiciones de funciones de estas librerias
 cuando le ponemos comillas ("stdio.h") es que nosotros estamops definiaendo esa libreria
-
+podemos poner todas las librerias que queramos, ej: #include <stdio.h>
+                                                    #include <stdbool.h>
 
 
 
