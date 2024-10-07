@@ -101,6 +101,33 @@ int main3(void)
 
 
 
+//Ej2.3 (not b && w)
+// (x-> 7, y-> 3, z-> 5)
+int main311(void) 
+{    
+    int x, y;
+    bool b, w;   // 0 false, x (1) true
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);  
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);  
+// (x-> 7, y-> _, z-> _)
+    b = x ;
+    w = y ;
+// (x-> 7, y-> , z-> )
+    printf("Su valor es not b && w =%d\n", !(b&&w));
+
+    return 0;
+    // ! = not
+    // && es y
+}
+
+// (x-> 1, y-> 10, z-> 8)
+
+
+
+
+
 
 
 
