@@ -27,19 +27,18 @@ Tipos en C: char, int, float, double (float de doble presicion)
 Para poder usar Bools podemos usar <stdbool.h>
 
 Funcion Principales:
-siempre se debe llamar main. Y en () recibe parametros o void. 
-void es una forma explicita de decir que no devuelve nada, no es necesario ponerlo
-return 0; es una forma de decrile a C que todo esta bien, que termino
-
 int main() {                 //funcion principal
    printf ("Hola mundo!\n")  //programa
    return 0;                 //convencion
 }
+siempre se debe llamar main. Y en () recibe parametros o void. Y la funcion main debe devolver siempre int
+void es una forma explicita de decir que no devuelve nada, no es necesario ponerlo
+return 0; es una forma de decrile a C que todo esta bien, que termino bien o exitoso
 
 Librerias de C:
-
-
-
+#include <stdio.h>
+debe estar incluido para que funcione, saca declaraciones o definiciones de funciones de estas librerias
+cuando le ponemos comillas ("stdio.h") es que nosotros estamops definiaendo esa libreria
 
 
 
