@@ -76,7 +76,7 @@ int main3(void)
 // (x-> 1, y-> 10, z-> 8)
 
 
-//Ej1.4 
+//Ej1.4 (y / 2 * x)
 // (x-> 7, y-> 3, z-> 5)
 int main3(void) 
 {    
@@ -87,10 +87,7 @@ int main3(void)
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);
 // (x-> 7, y-> , z-> _)
-    printf("Ingrese un valor para z\n");
-    scanf("%d", &z);
-// (x-> 7, y-> , z-> )
-    printf("Su valor es x+y=%d\n",x+y);
+    printf("Su valor es x+y=%d\n",y / 2 * x);
 
     return 0;
 }
@@ -109,9 +106,6 @@ int main3(void)
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);
 // (x-> 7, y-> , z-> _)
-    printf("Ingrese un valor para z\n");
-    scanf("%d", &z);
-// (x-> 7, y-> , z-> )
     printf("Su valor es x+y=%d\n",x+y);
 
     return 0;
