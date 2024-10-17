@@ -76,7 +76,7 @@ int main3(void)
 // (x-> 1, y-> 10, z-> 8)
 
 
-//Ej1.4
+//Ej1.4 (y < x * z)
 // (x-> 7, y-> 3, z-> 5)
 int main3(void) 
 {    
