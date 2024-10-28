@@ -244,7 +244,7 @@ int main4(void) {
 //Ej5.3a
 int main5(void) {
     int x, y;
-    printf("Ejercicio Lab4)\n");
+    printf("Ejercicio Lab5)\n");
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);
     printf("Ingrese un valor para y\n");
@@ -262,33 +262,54 @@ int main5(void) {
 
 //Ejercicio 6
 
-int main6(void) {
-    int x, y;
-    printf("Ejercicio Lab4)\n");
+int main61(void) {
+    int x, y, z, m;
+    printf("Ejercicio Lab6)\n");
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);
-    if (x>=y) {
-        x=0;
-    } else if (x<=y) {
-        x=2;
+    printf("Ingrese un valor para z\n");
+    scanf("%d", &z);
+    printf("Ingrese un valor para m\n");
+    scanf("%d", &m);
+    if (x<y) {
+        m=x;
+    } else {
+        m=y;
     }
-    printf("Su devolucion es x = %d y y = %d \n", x, y);
+    printf("Su devolucion es x = %d, y = %d, z = %d, m = %d \n", x, y, z, m);
+    return 0;
+}
+
+int main(void) {
+    int x, y, z, m;
+    printf("Ejercicio Lab6)\n");
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+    printf("Ingrese un valor para z\n");
+    scanf("%d", &z);
+    printf("Ingrese un valor para m\n");
+    scanf("%d", &m);
+    if (m<z) {
+        ;
+    } else {
+        m=z;
+    }
+    printf("Su devolucion es x = %d, y = %d, z = %d, m = %d \n", x, y, z, m);
     return 0;
 }
 
 
 
+// //Ejercicio 7
+// int i=4;
 
-
-
-
-
-
-//Ejercicio 7
-
-
-
+// while (i<0)
+// {
+//     /* code */
+// }
 
 
