@@ -75,7 +75,15 @@ en los booleanos 0 es false y 1 es true
 /* Clase 28/10/2024     - Ultima clase antes del 2do Parcial
 Veremos struct y assests
 struct es un tipo que puede contener varios otros tipos que ya conocemos
-struct par crearPar
+struct par {
+
+}
+
+
+struct par crearPar() {
+
+}
+
 
 Assert 
 debemos incluir la libreria  #include <assert.h>
@@ -87,7 +95,7 @@ debemos incluir la libreria  #include <assert.h>
 Resumen General
 
 
-
+El parcial va a ser completar struct y arreglos
 */
 
 
