@@ -70,9 +70,20 @@ cada funcion tiene su propio estado
 en los booleanos 0 es false y 1 es true
 */
 
-//Clase del 14/10 vimos arrays y no se que mas, las demas clases faltantes fueron paro/feriado/parcial
+//Clase del 14/10 vimos arrays y funciones, distintos tipos en c y las instrucciones (ciclos condicionales y variables) funciones de estandar input output, las demas clases faltantes fueron paro/feriado/parcial
 
 /* Clase 28/10/2024     - Ultima clase antes del 2do Parcial
+Veremos struct y assests
+struct es un tipo que puede contener varios otros tipos que ya conocemos
+struct par crearPar
+
+Assert 
+debemos incluir la libreria  #include <assert.h>
+
+
+
+
+
 Resumen General
 
 
