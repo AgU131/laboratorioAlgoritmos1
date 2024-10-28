@@ -68,17 +68,16 @@ void sentenceIf(int x, int y) {
 
 cada funcion tiene su propio estado
 en los booleanos 0 es false y 1 es true
+*/
 
+//Clase anterior vimos arrays y no se que mas
 
-
-
+/* Clase 28/10/2024     - Ultima clase antes del 2do Parcial
+Resumen General
 
 
 
 */
-
-
-
 
 
 
