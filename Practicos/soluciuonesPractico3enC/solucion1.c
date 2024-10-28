@@ -184,6 +184,7 @@ int main31(void) {
     scanf("%d", &x);
     x=5;
     printf("Ahora tu x es %d\n", x);
+    return 0;
 }
 //Ej3.1a, ejecucion 2
 //Ej3.1a, ejecucion 3
@@ -198,6 +199,7 @@ int main32(void) {
     x=x+y;
     y=y+x;
     printf("Ahora x = %d y y = %d \n", x, y);
+    return 0;
 }
 //Ej3.1b, ejecucion 2
 //Ej3.1b, ejecucion 3
@@ -213,6 +215,7 @@ int main33(void) {
     y=y+y;
     x=x+y;
     printf("Ahora x = %d y y = %d \n", x, y);
+    return 0;
 }
 //Ej3.1c, ejecucion 2
 //Ej3.1c, ejecucion 3
@@ -231,11 +234,59 @@ int main4(void) {
     y=y+y;
     x=x+z;
     printf("Ahora x = %d y y = %d \n", x, y);
+    return 0;
+}
+
+
+
+//Ejercicio 5
+
+//Ej5.3a
+int main5(void) {
+    int x, y;
+    printf("Ejercicio Lab4)\n");
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+    if (x>=y) {
+        x=0;
+    } else if (x<=y) {
+        x=2;
+    }
+    printf("Su devolucion es x = %d y y = %d \n", x, y);
+    return 0;
+}
+
+
+
+//Ejercicio 6
+
+int main6(void) {
+    int x, y;
+    printf("Ejercicio Lab4)\n");
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+    if (x>=y) {
+        x=0;
+    } else if (x<=y) {
+        x=2;
+    }
+    printf("Su devolucion es x = %d y y = %d \n", x, y);
+    return 0;
 }
 
 
 
 
+
+
+
+
+
+//Ejercicio 7
 
 
 
