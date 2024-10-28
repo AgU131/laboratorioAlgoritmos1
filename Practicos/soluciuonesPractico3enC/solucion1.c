@@ -125,10 +125,8 @@ int main21(void)
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);  
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
-    b = x ;
-    w = y ;
-// (x-> _, y-> _, z-> _, b-> _, w-> _)
-    printf("Su valor es not b && w =%d\n", (x % 4 == 0));
+    b = (x % 4 == 0);                           //no se si esto anda
+    printf("Su valor es not b && w =%d\n", b);
     return 0;
 }
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
@@ -180,32 +178,65 @@ int main23(void)
 //Ejercicio 3
 
 //Ej3.1a, ejecucion 1
-
-
+int main31(void) {
+    int x;
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    x=5;
+    printf("Ahora tu x es %d\n", x);
+}
 //Ej3.1a, ejecucion 2
-
-
 //Ej3.1a, ejecucion 3
 
-
-
 //Ej3.1b, ejecucion 1
-
-
+int main32(void) {
+    int x, y;
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+    x=x+y;
+    y=y+x;
+    printf("Ahora x = %d y y = %d \n", x, y);
+}
 //Ej3.1b, ejecucion 2
-
-
 //Ej3.1b, ejecucion 3
 
-
-
 //Ej3.1c, ejecucion 1
-
-
+int main33(void) {
+    int x, y;
+    printf("Ejercicio Lab3: 1c)\n");
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+    y=y+y;
+    x=x+y;
+    printf("Ahora x = %d y y = %d \n", x, y);
+}
 //Ej3.1c, ejecucion 2
-
-
 //Ej3.1c, ejecucion 3
+
+
+
+//Ejercicio 4: Si es posible
+int main4(void) {
+    int x, y, z;
+    printf("Ejercicio Lab4)\n");
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+    z=y;
+    y=y+y;
+    x=x+z;
+    printf("Ahora x = %d y y = %d \n", x, y);
+}
+
+
+
+
+
 
 
 
