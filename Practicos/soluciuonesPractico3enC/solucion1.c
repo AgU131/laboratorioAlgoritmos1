@@ -12,14 +12,13 @@ int mainEjemplo(void)
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);
     printf("Su valor es x+y=%d\n",x+y);   //el %d es para esperar int (digito)
-
     return 0;
 }
 
 
 //Ej1.1 (x+y+1)
 // (x-> 7, y-> 3, z-> 5)
-int main1(void) 
+int main11(void) 
 {    
     int x, y;
     printf("Ingrese un valor para x\n");
@@ -36,7 +35,7 @@ int main1(void)
 
 //Ej1.2 (z * z + y * 45 - 15 * x)
 // (x-> 7, y-> 3, z-> 5)
-int main2(void) 
+int main12(void) 
 {    
     int x, y, z;
     printf("Ingrese un valor para x\n");
@@ -56,7 +55,7 @@ int main2(void)
 
 //Ej1.3 (y - 2 == (x * 3 + 1) % 5)
 // (x-> 7, y-> 3, z-> 5)
-int main3(void) 
+int main13(void) 
 {    
     int x, y, z;
     printf("Ingrese un valor para x\n");
@@ -72,15 +71,14 @@ int main3(void)
 
     return 0;
 }
-
 // (x-> 1, y-> 10, z-> 8)
 
 
 //Ej1.4 (y / 2 * x)
 // (x-> 7, y-> 3, z-> 5)
-int main3(void) 
+int main14(void) 
 {    
-    int x, y, z;
+    int x, y;
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);  
 // (x-> 7, y-> _, z-> _)
@@ -91,13 +89,12 @@ int main3(void)
 
     return 0;
 }
-
 // (x-> 1, y-> 10, z-> 8)
 
 
 //Ej1.5 (y < x * z)
 // (x-> 7, y-> 3, z-> 5)
-int main3(void) 
+int main15(void) 
 {    
     int x, y, z;
     printf("Ingrese un valor para x\n");
@@ -106,20 +103,59 @@ int main3(void)
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);
 // (x-> 7, y-> , z-> _)
-    printf("Su valor es x+y=%d\n",x+y);
+    printf("Ingrese un valor para z\n");
+    scanf("%d", &z);
+// (x-> 7, y-> , z-> )
+    printf("Su valor es x+y=%d\n",y<x*z);
 
     return 0;
 }
-
 // (x-> 1, y-> 10, z-> 8)
 
 
 
+//Ejercicio 2
+
+//Ej2.1 (x % 4 == 0)
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+int main21(void) 
+{    
+    int x;
+    bool b, w;   // 0 false, x (1) true
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);  
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+    b = x ;
+    w = y ;
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+    printf("Su valor es not b && w =%d\n", (x % 4 == 0));
+    return 0;
+}
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+
+
+//Ej2.2 (x + y == 0 && y - x == (-1) * z)
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+int main22(void) 
+{    
+    int x, y, z;
+    bool b, w;   // 0 false, x (1) true
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);  
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);  
+    printf("Ingrese un valor para z\n");
+    scanf("%d", &z);
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+    printf("Su valor es not b && w =%d\n", (x + y == 0 && y - x == (-1) * z));
+    return 0;
+}
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
 
 
 //Ej2.3 (not b && w)
-// (x-> 7, y-> 3, z-> 5)
-int main311(void) 
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+int main23(void) 
 {    
     int x, y;
     bool b, w;   // 0 false, x (1) true
@@ -127,27 +163,49 @@ int main311(void)
     scanf("%d", &x);  
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);  
-// (x-> 7, y-> _, z-> _)
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
     b = x ;
     w = y ;
-// (x-> 7, y-> , z-> )
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
     printf("Su valor es not b && w =%d\n", !(b&&w));
 
     return 0;
     // ! = not
     // && es y
 }
-
-// (x-> 1, y-> 10, z-> 8)
-
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
 
 
 
+//Ejercicio 3
+
+//Ej3.1a, ejecucion 1
+
+
+//Ej3.1a, ejecucion 2
+
+
+//Ej3.1a, ejecucion 3
 
 
 
+//Ej3.1b, ejecucion 1
 
 
+//Ej3.1b, ejecucion 2
+
+
+//Ej3.1b, ejecucion 3
+
+
+
+//Ej3.1c, ejecucion 1
+
+
+//Ej3.1c, ejecucion 2
+
+
+//Ej3.1c, ejecucion 3
 
 
 
