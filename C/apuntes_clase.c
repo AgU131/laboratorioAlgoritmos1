@@ -6,6 +6,7 @@ Para compilar un archivo .c escribir en la terminal:
         $> gcc -Wall -Wextra -std=c99 miarchivo.c -o miprograma
 -Para ejecutar escribir: 
         $> ./miprograma
+
 Si uno no quiere crear un archivo ejecutable, pero quiere compilar el archivo puede hacer esto:
         > gcc -Wall -Wextra -std=c99 miarchivo.c -c     //donde en vez de poner -o ponemos -c para compilar sin crear ejecutable
 
