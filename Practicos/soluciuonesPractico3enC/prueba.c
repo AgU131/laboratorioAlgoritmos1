@@ -1,7 +1,37 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
+//assert s
+bool pedirBooleano(void) {
+    int temp = 2;
+    while (!(temp ==1 || temp ==0)) {
+    printf("Ingrese un bool: 0 para false | 1 para true\n");
+    scanf("%i", &temp);
+    }
+    assert(temp==1 || temp==0);
+    // printf("%i", temp);
+    return temp;
+}
 
+void imprimirBooleano(bool x) {
+    assert (x==1 || x==0);
+    if (x==1) {
+        printf("Verdadero\n");
+    } else if (x==0) {
+        printf("Falso\n");
+    }
+}
+
+int main(void) {
+    bool x = pedirBooleano();   //Despues de media hora vi que el error era no haberle puesto () despues de la func
+    imprimirBooleano(x);
+
+    return 0;
+}
+
+/*   Resolucion de chatgpt para pedir bools
 int main() {
     int b, w; // Usamos el tipo bool para las variables booleanas
 
@@ -19,7 +49,7 @@ int main() {
 
     return 0;
 }
-
+*/
 
 
 /*
