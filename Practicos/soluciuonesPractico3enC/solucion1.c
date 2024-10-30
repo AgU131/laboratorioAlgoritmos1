@@ -15,28 +15,10 @@ int mainEjemplo(void)
     return 0;
 }
 
+//Antes aca hice 1 para cada apartado del ej, pero ahora hay 1 para todos (que incluye a todos)
 
-//Ej1.1 (x+y+1)
 // (x-> 7, y-> 3, z-> 5)
-int main11(void) 
-{    
-    int x, y;
-    printf("Ingrese un valor para x\n");
-    scanf("%d", &x);  
-// (x-> 7, y-> _, z-> _)
-    printf("Ingrese un valor para y\n");
-    scanf("%d", &y);
-// (x-> 7, y-> 3, z-> _)
-    printf("Su valor es x+y+1 = %d\n",x+y+1);
-    return 0;
-// (x-> 7, y-> 3, z-> _)
-}
-
-
-//Ej1.2 (z * z + y * 45 - 15 * x)
-// (x-> 7, y-> 3, z-> 5)
-int main12(void) 
-{    
+int main1(void) {    
     int x, y, z;
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);  
@@ -46,71 +28,26 @@ int main12(void)
 // (x-> 7, y-> 3, z-> _)
     printf("Ingrese un valor para z\n");
     scanf("%d", &z);
-// (x-> 7, y-> 3, z-> 5)
+// (x-> 7, y-> 3, z-> )
+    printf("Recuerde que el valor 0 = false y 1 = true\n");
+    //Ej1.1 (x+y+1)
+    printf("Su valor es x + y + 1 = %d\n",x+y+1);
+
+    //Ej1.2 (z * z + y * 45 - 15 * x)
     printf("Su valor es z * z + y * 45 - 15 * x = %d\n",z*z+y*45-15*x);
-    return 0;
-// (x-> 7, y-> 3, z-> 5)
-}
-
-
-//Ej1.3 (y - 2 == (x * 3 + 1) % 5)
-// (x-> 7, y-> 3, z-> 5)
-int main13(void) 
-{    
-    int x, y, z;
-    printf("Ingrese un valor para x\n");
-    scanf("%d", &x);  
-// (x-> 7, y-> _, z-> _)
-    printf("Ingrese un valor para y\n");
-    scanf("%d", &y);
-// (x-> 7, y-> , z-> _)
-    printf("Ingrese un valor para z\n");
-    scanf("%d", &z);
-// (x-> 7, y-> , z-> )
+    
+    //Ej1.3 (y - 2 == (x * 3 + 1) % 5)
     printf("Su valor es y - 2 == (x * 3 + 1) / 5 = %d\n",y - 2 == (x * 3 + 1) / 5);
+    
+    //Ej1.4 (y / 2 * x)
+    printf("Su valor es y / 2 * x = %d\n",y / 2 * x);
+
+    //Ej1.5 (y < x * z)
+    printf("Su valor es y < x * z = %d\n",y<x*z);
 
     return 0;
 }
-// (x-> 1, y-> 10, z-> 8)
-
-
-//Ej1.4 (y / 2 * x)
-// (x-> 7, y-> 3, z-> 5)
-int main14(void) 
-{    
-    int x, y;
-    printf("Ingrese un valor para x\n");
-    scanf("%d", &x);  
-// (x-> 7, y-> _, z-> _)
-    printf("Ingrese un valor para y\n");
-    scanf("%d", &y);
-// (x-> 7, y-> , z-> _)
-    printf("Su valor es x+y=%d\n",y / 2 * x);
-
-    return 0;
-}
-// (x-> 1, y-> 10, z-> 8)
-
-
-//Ej1.5 (y < x * z)
-// (x-> 7, y-> 3, z-> 5)
-int main15(void) 
-{    
-    int x, y, z;
-    printf("Ingrese un valor para x\n");
-    scanf("%d", &x);  
-// (x-> 7, y-> _, z-> _)
-    printf("Ingrese un valor para y\n");
-    scanf("%d", &y);
-// (x-> 7, y-> , z-> _)
-    printf("Ingrese un valor para z\n");
-    scanf("%d", &z);
-// (x-> 7, y-> , z-> )
-    printf("Su valor es x+y=%d\n",y<x*z);
-
-    return 0;
-}
-// (x-> 1, y-> 10, z-> 8)
+// (x-> 7, y-> 3, z-> _)
 
 
 
@@ -118,15 +55,22 @@ int main15(void)
 
 //Ej2.1 (x % 4 == 0)
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
-int main21(void) 
-{    
+int main21(void) {    
     int x;
-    bool b, w;   // 0 false, x (1) true
+    bool b;   // 0 false, x (1) true
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);  
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
     b = (x % 4 == 0);                           //no se si esto anda
-    printf("Su valor es not b && w =%d\n", b);
+    
+    if (b)
+    {
+    printf("Su valor es: x mod 4 == 0) = true\n");
+    } else {
+    printf("Su valor es: x mod 4 == 0) = false\n");   
+    }
+    
+    // printf("Su valor es not b && w =%d\n", b);
     return 0;
 }
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
@@ -134,18 +78,19 @@ int main21(void)
 
 //Ej2.2 (x + y == 0 && y - x == (-1) * z)
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
-int main22(void) 
-{    
+int main22(void) {    
     int x, y, z;
-    bool b, w;   // 0 false, x (1) true
+    bool resultado;
+    // 0 false, x (1) true
     printf("Ingrese un valor para x\n");
     scanf("%d", &x);  
     printf("Ingrese un valor para y\n");
     scanf("%d", &y);  
     printf("Ingrese un valor para z\n");
     scanf("%d", &z);
+    resultado = (x + y == 0 && y - x == (-1) * z);
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
-    printf("Su valor es not b && w =%d\n", (x + y == 0 && y - x == (-1) * z));
+    printf("Su valor es: (x + y == 0 && y - x == (-1) * z) = %d\n", resultado);
     return 0;
 }
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
@@ -154,19 +99,25 @@ int main22(void)
 //Ej2.3 (not b && w)
 // (x-> _, y-> _, z-> _, b-> _, w-> _)
 int main23(void) 
-{    
-    int x, y;
-    bool b, w;   // 0 false, x (1) true
-    printf("Ingrese un valor para x\n");
-    scanf("%d", &x);  
-    printf("Ingrese un valor para y\n");
-    scanf("%d", &y);  
-// (x-> _, y-> _, z-> _, b-> _, w-> _)
-    b = x ;
-    w = y ;
-// (x-> _, y-> _, z-> _, b-> _, w-> _)
-    printf("Su valor es not b && w =%d\n", !(b&&w));
+{    //despues de muchas pruebas parece que si def las variables como bool no funciona el code
+    int b , w;   // 0 false, x (1) true
 
+    printf("Recuerde que: 0 = false y 1 = true\n");
+    printf("Ingrese un valor para b:\n");
+    scanf("%d", &b);  
+    printf("Ingrese un valor para w:\n");
+    scanf("%d", &w);  
+// (x-> _, y-> _, z-> _, b-> _, w-> _)
+    bool result = (!b && w);
+    
+    if (result)
+    {
+    printf("Su valor es: not b && w = true (1)\n");
+    } else {
+    printf("Su valor es: not b && w = false (0)\n");   
+    }
+    // (x-> _, y-> _, z-> _, b-> _, w-> _)
+    
     return 0;
     // ! = not
     // && es y
@@ -282,7 +233,7 @@ int main61(void) {
     return 0;
 }
 
-int main(void) {
+int main62(void) {
     int x, y, z, m;
     printf("Ejercicio Lab6)\n");
     printf("Ingrese un valor para x\n");
@@ -305,11 +256,85 @@ int main(void) {
 
 
 // //Ejercicio 7
-// int i=4;
 
-// while (i<0)
-// {
-//     /* code */
-// }
+// a) int i=4;
+int main71(void){
+    int i=4;
+    while (i!=0)
+    {
+        i = i-1;        
+    }
+    printf("%d\n", i);
+    
+    return 0;
+}
+// b) int i=4;
+
+int main72(void){
+    int i=400;
+    while (i!=0)
+    {
+        i = 0;        
+    }
+    printf("%d\n", i);
+    
+    return 0;
+}
+// c) int i=4;
+int main73(void){
+    int i=4;
+    while (i<0)
+    {
+        i = i-1;
+    }
+    printf("%d\n", i);
+
+    return 0;
+}
+
+
+//Ejercicio 8
+//a)
+
+int main81() {
+    int x, y, i=0;
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+    printf("Ingrese un valor para y\n");
+    scanf("%d", &y);
+
+    while (x>=y)
+    {
+        x = x-y;
+        i = i+1;
+    }
+    printf("Valores resultantes: x = %d, y = %d, i = %d\n", x, y, i);
+
+    return 0;
+}
+
+//b)
+
+int main() {
+    int x, i=2;
+    bool res = true;
+    printf("Ingrese un valor para x\n");
+    scanf("%d", &x);
+
+    while (i<x && res)
+    {
+        res = res && ((x % i) != 0);
+        i = i+1;
+    }
+    printf("Valores resultantes: x = %d, i = %d, res = %d\n", x, i, res);
+    printf("(0 para false, 1 para true)\n");
+
+    return 0;
+}
+
+
+//Ejercicio 9
+
+
 
 
