@@ -66,3 +66,15 @@ int main22() {
 
 
 
+//Ejercicio 4
+//calcular el minimo entre x e y int
+
+int main() {
+    // min 
+
+    return 0;
+}
+
+
+
+//calcular el valor absoluto de un numero
