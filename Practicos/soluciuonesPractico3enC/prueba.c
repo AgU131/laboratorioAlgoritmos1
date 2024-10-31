@@ -3,6 +3,10 @@
 #include <stdbool.h>
 #include <assert.h>
 
+//una forma de usar if es tambien asi:
+        //es_vocal(letra)?printf("Es vocal\n"):printf("No es vocal\n");
+
+
 //assert s
 bool pedirBooleano(void) {
     int temp = 2;

@@ -413,7 +413,4 @@ int main() {
 
 
 
-//Ejercicio 10
-
-
 
