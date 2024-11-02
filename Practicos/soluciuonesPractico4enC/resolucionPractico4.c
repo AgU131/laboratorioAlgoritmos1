@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <assert.h>
+#include <stdbool.h>
 
 //Ejercicio 1
 
@@ -61,6 +63,7 @@ int main22() {
     printf("x = %d\n", x);
     printf("y = %d\n", y);
     printf("z = %d\n", z);
+
     return 0;
 }
 
@@ -68,13 +71,65 @@ int main22() {
 
 //Ejercicio 4
 //calcular el minimo entre x e y int
+int main41() {
+    int x, y;
+    printf("Dame un valor para x\n");
+    scanf("%i", &x);
+    printf("Dame un valor para y\n");
+    scanf("%i", &y);
+    if (x<y){
+        printf("El minimo entre 'x' e 'y' es: 'X' = %d\n", x);
+    } else if (x>y){
+        printf("El minimo entre 'x' e 'y' es: 'Y' = %d\n", y);
+    } else if (x==y) {
+        printf("Los valores de 'x' e 'y' son iguales\n");
+    }
 
-int main() {
-    // min 
+    return 0;
+}
+
+//calcular el valor absoluto de un int
+int main42() {
+    int x;
+    printf("Dame un valor para x\n");
+    scanf("%d", &x);
+    if (x<0){
+        x = x * (-1);
+    }
+    printf("El valor absoluto de x es: %d\n", x);
+    
+    return 0;
+}
+
+
+
+//Ejercicio 5
+int suma_hasta(int n) {
+    int i = 0, resultado = 0;
+    assert(!(n < 0));
+    while (i < n) {
+        resultado = resultado + i;
+        i = i+1;
+        // n = n-1;
+    }
+
+    return resultado;
+}
+
+int main(){
+    int x;
+    printf("Dame un valor para x\n");
+    scanf("%d", &x);
+        while (x<0) {
+        printf("ERROR. 'x' debe ser > o = a '0'\n");
+        printf("\nDame un valor valido para x:\n");
+        scanf("%d", &x);
+        }
+    printf("El valor es: %i\n", suma_hasta(x));
 
     return 0;
 }
 
 
 
-//calcular el valor absoluto de un numero
+
