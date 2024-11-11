@@ -38,7 +38,7 @@ int sum_even(int tam, int a[], int n) {
 //Ejercicio 2
 
 int main(void) {
-    int i = 0, e = 0, tam = N, a[N], n = 1;
+    int i = 0, e = 0, tam = N, a[N], n = 0;
     //Pedimos los valores del arreglo
     printf("Ahora ingresara los valores para el arreglo 'a' \n");
     while (i<tam) {
